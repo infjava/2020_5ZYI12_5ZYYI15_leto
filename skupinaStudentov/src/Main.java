@@ -8,5 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         Student janko = new Student("1001120", "Jan", "Janech");
+        System.out.println(janko);
     }
 }
