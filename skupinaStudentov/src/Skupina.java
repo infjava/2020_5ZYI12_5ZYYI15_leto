@@ -21,4 +21,13 @@ public class Skupina {
     public void pridajStudenta(Student student) {
         this.zoznamStudentov.add(student);
     }
+
+    public void odoberStudenta(String osobneCislo) {
+        for (Student student : this.zoznamStudentov) {
+            if (student.getOsobneCislo().equals(osobneCislo)) {
+                this.zoznamStudentov.remove(student);
+                return;
+            }
+        }
+    }
 }
