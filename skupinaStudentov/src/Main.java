@@ -10,6 +10,8 @@ public class Main {
         Student janko = new Student("1001120", "Jan", "Janech");
         Skupina sk = new Skupina("asdf");
         sk.pridajStudenta(janko);
+        System.out.println(sk.getStudent("1001120"));
+        sk.vypisStudentov();
         sk.odoberStudenta("1001120");
     }
 }

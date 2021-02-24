@@ -30,4 +30,20 @@ public class Skupina {
             }
         }
     }
+
+    public Student getStudent(String osobneCislo) {
+        for (Student student : this.zoznamStudentov) {
+            if (student.getOsobneCislo().equals(osobneCislo)) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public void vypisStudentov() {
+        System.out.printf("Studenti skupiny %s:%n", this.cisloSkupiny);
+        for (Student student : this.zoznamStudentov) {
+            System.out.println(student);
+        }
+    }
 }
