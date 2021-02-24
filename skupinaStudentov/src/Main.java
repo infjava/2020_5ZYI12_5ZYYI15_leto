@@ -7,7 +7,6 @@
 public class Main {
 
     public static void main(String[] args) {
-        //TODO Write your code
-        System.out.println("Hello world");
+        Student janko = new Student("1001120", "Jan", "Janech");
     }
 }
