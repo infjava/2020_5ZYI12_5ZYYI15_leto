@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Assertions;
@@ -9,21 +10,25 @@ import org.junit.jupiter.api.Assertions;
  */
 class StudentTest {
 
+    private Student jozo;
+
+    @BeforeEach
+    void setUp() {
+        this.jozo = new Student("345", "Jozef", "Mrkvicka");
+    }
+
     @Test
     void getOsobneCislo() {
-        Student jozo = new Student("345", "Jozef", "Mrkvicka");
-        Assertions.assertEquals("345", jozo.getOsobneCislo());
+        Assertions.assertEquals("345", this.jozo.getOsobneCislo());
     }
 
     @Test
     void getMeno() {
-        Student jozo = new Student("345", "Jozef", "Mrkvicka");
-        Assertions.assertEquals("Jozef", jozo.getMeno());
+        Assertions.assertEquals("Jozef", this.jozo.getMeno());
     }
 
     @Test
     void getPriezvisko() {
-        Student jozo = new Student("345", "Jozef", "Mrkvicka");
-        Assertions.assertEquals("Mrkvicka", jozo.getPriezvisko());
+        Assertions.assertEquals("Mrkvicka", this.jozo.getPriezvisko());
     }
 }
