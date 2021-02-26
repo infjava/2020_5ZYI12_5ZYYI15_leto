@@ -24,6 +24,7 @@ public class Skupina {
 
     public void pridajStudenta(Student student) {
         if (this.getStudent(student.getOsobneCislo()) != null) {
+            System.err.println("Student sa uz v zozname nachadza, alebo nastal konflikt osobnych cisel");
             return;
         }
 
