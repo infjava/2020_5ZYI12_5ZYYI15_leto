@@ -18,6 +18,10 @@ public class Skupina {
         return this.cisloSkupiny;
     }
 
+    public int getPocetStudentov() {
+        return this.zoznamStudentov.size();
+    }
+
     public void pridajStudenta(Student student) {
         this.zoznamStudentov.add(student);
     }
