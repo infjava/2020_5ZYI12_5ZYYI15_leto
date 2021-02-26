@@ -39,4 +39,12 @@ public class SkupinaTest {
         skupina.odoberStudenta("123");
         Assertions.assertNull(skupina.getStudent("123"));
     }
+
+    @Test
+    void ziskanieStudentaPodlaOsCisla() {
+        Skupina skupina = new Skupina("123");
+        Assertions.assertNull(skupina.getStudent("123"));
+        skupina.pridajStudenta(new Student("123", "Jozko", "Mrkva"));
+        Assertions.assertNotNull(skupina.getStudent("123"));
+    }
 }
