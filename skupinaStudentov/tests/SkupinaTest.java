@@ -17,4 +17,17 @@ public class SkupinaTest {
         Assertions.assertNotNull(najdeny);
         Assertions.assertSame(jozo, najdeny);
     }
+
+    @Test
+    void vypisaniePrazdnejSkupiny() {
+        Skupina skupina = new Skupina("111");
+        skupina.vypisStudentov();
+    }
+
+    @Test
+    void vypisanieSkupinySJednymStudentom() {
+        Skupina skupina = new Skupina("111");
+        skupina.pridajStudenta(new Student("123", "Jozko", "Mrkva"));
+        skupina.vypisStudentov();
+    }
 }
