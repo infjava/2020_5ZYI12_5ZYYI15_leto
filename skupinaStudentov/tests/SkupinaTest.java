@@ -47,4 +47,12 @@ public class SkupinaTest {
         skupina.pridajStudenta(new Student("123", "Jozko", "Mrkva"));
         Assertions.assertNotNull(skupina.getStudent("123"));
     }
+
+    @Test
+    void pridanieDvochRovnakychStudentov() {
+        Skupina skupina = new Skupina("123");
+        skupina.pridajStudenta(new Student("123", "Jozko", "Mrkva"));
+        skupina.pridajStudenta(new Student("123", "Ferko", "Mrkva"));
+        Assertions.assertEquals(1, skupina.getPocetStudentov());
+    }
 }

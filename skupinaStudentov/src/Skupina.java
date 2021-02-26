@@ -23,6 +23,12 @@ public class Skupina {
     }
 
     public void pridajStudenta(Student student) {
+        for (Student kontrolovany : this.zoznamStudentov) {
+            if (kontrolovany.getOsobneCislo().equals(student.getOsobneCislo())) {
+                return;
+            }
+        }
+
         this.zoznamStudentov.add(student);
     }
 
