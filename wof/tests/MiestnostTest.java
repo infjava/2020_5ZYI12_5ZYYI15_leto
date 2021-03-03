@@ -31,27 +31,27 @@ public class MiestnostTest {
     @Test
     public void nemaVychody() {
         Assertions.assertEquals("nema vychody", this.nemaVychody.getPopis());
-        Assertions.assertNull(this.nemaVychody.vychodnyVychod);
-        Assertions.assertNull(this.nemaVychody.zapadnyVychod);
-        Assertions.assertNull(this.nemaVychody.severnyVychod);
-        Assertions.assertNull(this.nemaVychody.juznyVychod);
+        Assertions.assertNull(this.nemaVychody.getMiestnostVSmere("vychod"));
+        Assertions.assertNull(this.nemaVychody.getMiestnostVSmere("zapad"));
+        Assertions.assertNull(this.nemaVychody.getMiestnostVSmere("sever"));
+        Assertions.assertNull(this.nemaVychody.getMiestnostVSmere("juh"));
     }
 
     @Test
     public void sever() {
         Assertions.assertEquals("sever", this.sever.getPopis());
-        Assertions.assertSame(this.vychod, this.sever.vychodnyVychod);
-        Assertions.assertSame(this.zapad, this.sever.zapadnyVychod);
-        Assertions.assertNull(this.sever.severnyVychod);
-        Assertions.assertSame(this.juh, this.sever.juznyVychod);
+        Assertions.assertSame(this.vychod, this.sever.getMiestnostVSmere("vychod"));
+        Assertions.assertSame(this.zapad, this.sever.getMiestnostVSmere("zapad"));
+        Assertions.assertNull(this.sever.getMiestnostVSmere("sever"));
+        Assertions.assertSame(this.juh, this.sever.getMiestnostVSmere("juh"));
     }
 
     @Test
     public void juh() {
         Assertions.assertEquals("juh", this.juh.getPopis());
-        Assertions.assertSame(this.vychod, this.juh.vychodnyVychod);
-        Assertions.assertSame(this.zapad, this.juh.zapadnyVychod);
-        Assertions.assertSame(this.sever, this.juh.severnyVychod);
-        Assertions.assertNull(this.juh.juznyVychod);
+        Assertions.assertSame(this.vychod, this.juh.getMiestnostVSmere("vychod"));
+        Assertions.assertSame(this.zapad, this.juh.getMiestnostVSmere("zapad"));
+        Assertions.assertSame(this.sever, this.juh.getMiestnostVSmere("sever"));
+        Assertions.assertNull(this.juh.getMiestnostVSmere("juh"));
     }
 }
