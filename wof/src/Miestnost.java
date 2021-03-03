@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Trieda Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Miestnost {
     private final String popisMiestnosti;
-    private final ArrayList<Vychod> vychody;
+    private final HashMap<String, Miestnost> vychody;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -25,11 +25,11 @@ public class Miestnost {
      */
     public Miestnost(String popis) {
         this.popisMiestnosti = popis;
-        this.vychody = new ArrayList<>();
+        this.vychody = new HashMap<>();
     }
 
     public void nastavVychod(String smer, Miestnost ciel) {
-        this.vychody.add(new Vychod(smer, ciel));
+        this.vychody.put(smer, ciel);
     }
 
     /**
@@ -42,19 +42,13 @@ public class Miestnost {
     void vypisInfoOMiestnosti() {
         System.out.println("Teraz si v miestnosti " + this.getPopis());
         System.out.print("Vychody: ");
-        for (Vychod vychod : this.vychody) {
-            System.out.format("%s ", vychod.getSmer());
+        for (String smer : this.vychody.keySet()) {
+            System.out.format("%s ", smer);
         }
         System.out.println();
     }
 
     Miestnost getMiestnostVSmere(String smer) {
-        for (Vychod vychod : this.vychody) {
-            if (vychod.getSmer().equals(smer)) {
-                return vychod.getCiel();
-            }
-        }
-
-        return null;
+        return this.vychody.get(smer);
     }
 }
