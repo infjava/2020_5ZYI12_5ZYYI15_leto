@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
  */
 public class NazvyPrikazovTest {
 
-    private NazvyPrikazov nazvyPri1;
+    private VykonavaniePrikazov nazvyPri1;
 
     @BeforeEach
     public void setUp() {
-        this.nazvyPri1 = new NazvyPrikazov();
+        this.nazvyPri1 = new VykonavaniePrikazov();
     }
 
     @Test
