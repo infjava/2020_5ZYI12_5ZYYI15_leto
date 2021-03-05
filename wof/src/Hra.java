@@ -26,41 +26,9 @@ public class Hra  {
      * Vytvori a inicializuje hru.
      */
     public Hra() {
-        Miestnost pociatocnaMiestnost = this.vytvorMiestnosti();
-        this.hrac = new Hrac(pociatocnaMiestnost);
+        Svet svet = new Svet();
+        this.hrac = new Hrac(svet.getStartovaciaMiestnost());
         this.parser = new Parser();
-    }
-
-    /**
-     * Vytvori mapu hry - miestnosti.
-     * @return pociatocna miestnost
-     */
-    private Miestnost vytvorMiestnosti() {
-        // vytvorenie miestnosti
-        Miestnost terasa = new Miestnost("terasa - hlavny vstup na fakultu");
-        Miestnost aula = new Miestnost("aula");
-        Miestnost bufet = new Miestnost("bufet");
-        Miestnost labak = new Miestnost("pocitacove laboratorium");
-        Miestnost kancelaria = new Miestnost("kancelaria spravcu pocitacoveho laboratoria");
-        Miestnost skrina = new Miestnost("skrina na vybavenie laboratoria");
-        
-        // inicializacia miestnosti = nastavenie vychodov
-        terasa.nastavVychod("vychod", aula);
-        terasa.nastavVychod("juh", labak);
-        terasa.nastavVychod("zapad", bufet);
-        aula.nastavVychod("zapad", terasa);
-        bufet.nastavVychod("vychod", terasa);
-        labak.nastavVychod("sever", terasa);
-        labak.nastavVychod("vychod", kancelaria);
-        kancelaria.nastavVychod("zapad", labak);
-
-        labak.nastavVychod("skrina", skrina);
-        skrina.nastavVychod("von", labak);
-
-        aula.nastavVychod("dole", bufet);
-        bufet.nastavVychod("hore", aula);
-
-        return terasa;  // startovacia miestnost hry
     }
 
     /**
