@@ -20,20 +20,22 @@
  
 public class Hra  {
     private final Parser parser;
-    private Miestnost aktualnaMiestnost;
-    
+    private final Hrac hrac;
+
     /**
      * Vytvori a inicializuje hru.
      */
     public Hra() {
-        this.vytvorMiestnosti();
+        Miestnost pociatocnaMiestnost = this.vytvorMiestnosti();
+        this.hrac = new Hrac(pociatocnaMiestnost);
         this.parser = new Parser();
     }
 
     /**
      * Vytvori mapu hry - miestnosti.
+     * @return pociatocna miestnost
      */
-    private void vytvorMiestnosti() {
+    private Miestnost vytvorMiestnosti() {
         // vytvorenie miestnosti
         Miestnost terasa = new Miestnost("terasa - hlavny vstup na fakultu");
         Miestnost aula = new Miestnost("aula");
@@ -58,7 +60,7 @@ public class Hra  {
         aula.nastavVychod("dole", bufet);
         bufet.nastavVychod("hore", aula);
 
-        this.aktualnaMiestnost = terasa;  // startovacia miestnost hry
+        return terasa;  // startovacia miestnost hry
     }
 
     /**
@@ -91,7 +93,7 @@ public class Hra  {
         System.out.println("World of FRI je nova, neuveritelne nudna adventura.");
         System.out.println("Zadaj 'pomoc' ak potrebujes pomoc.");
         System.out.println();
-        this.aktualnaMiestnost.vypisInfoOMiestnosti();
+        this.hrac.getAktualnaMiestnost().vypisInfoOMiestnosti();
     }
 
     /**
@@ -149,14 +151,10 @@ public class Hra  {
 
         String smer = prikaz.getParameter();
 
-        // Pokus o opustenie aktualnej miestnosti danym vychodom.
-        Miestnost novaMiestnost = this.aktualnaMiestnost.getMiestnostVSmere(smer);
-
-        if (novaMiestnost == null) {
-            System.out.println("Tam nie je vychod!");
+        if (this.hrac.chodSmerom(smer)) {
+            this.hrac.getAktualnaMiestnost().vypisInfoOMiestnosti();
         } else {
-            this.aktualnaMiestnost = novaMiestnost;
-            this.aktualnaMiestnost.vypisInfoOMiestnosti();
+            System.out.println("Tam nie je vychod!");
         }
     }
 
