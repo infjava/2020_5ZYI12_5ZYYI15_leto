@@ -1,3 +1,7 @@
+package sk.uniza.fri.wof.hra;
+
+import sk.uniza.fri.wof.svet.Miestnost;
+
 public class Hrac {
     private Miestnost aktualnaMiestnost;
 

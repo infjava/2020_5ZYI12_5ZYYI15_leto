@@ -1,15 +1,22 @@
+package sk.uniza.fri.wof.hra;
+
+import sk.uniza.fri.wof.prikazy.Parser;
+import sk.uniza.fri.wof.prikazy.Prikaz;
+import sk.uniza.fri.wof.svet.Svet;
+import sk.uniza.fri.wof.prikazy.VykonavaniePrikazov;
+
 /**
- * Trieda Hra je hlavna trieda aplikacie "World of FRI".
+ * Trieda sk.uniza.fri.wof.hra.Hra je hlavna trieda aplikacie "World of FRI".
  * "World of FRI" je velmi jednoducha textova hra - adventura. 
- * Hrac sa moze prechadzat po niektorych priestoroch - miestnostiach fakulty. 
+ * sk.uniza.fri.wof.hra.Hrac sa moze prechadzat po niektorych priestoroch - miestnostiach fakulty.
  * To je v tejto verzii vsetko. Hru treba skutocne zancne rozsirit,
  * aby bola zaujimava.
  * 
- * Ak chcete hrat "World of FRI", vytvorte instanciu triedy Hra (hra) 
+ * Ak chcete hrat "World of FRI", vytvorte instanciu triedy sk.uniza.fri.wof.hra.Hra (hra)
  * a poslite jej spravu hraj.
  * 
- * Hra vytvori a inicializuje vsetky potebne objekty:
- * vytvori vsetky miestnosti, vytvori parser a zacne hru. Hra tiez vyhodnocuje
+ * sk.uniza.fri.wof.hra.Hra vytvori a inicializuje vsetky potebne objekty:
+ * vytvori vsetky miestnosti, vytvori parser a zacne hru. sk.uniza.fri.wof.hra.Hra tiez vyhodnocuje
  * a vykonava prikazy, ktore vrati parser.
  * 
  * @author  Michael Kolling, David J. Barnes

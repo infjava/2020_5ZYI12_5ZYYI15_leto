@@ -1,3 +1,5 @@
+package sk.uniza.fri.wof.svet;
+
 public class Svet {
     private final Miestnost startovaciaMiestnost;
 
