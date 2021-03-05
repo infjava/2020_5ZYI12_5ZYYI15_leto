@@ -1,0 +1,37 @@
+ulohy/questy
+- dostat sa niekam nacas
+
+eventy
+- frickovica - ukazkove suboje, dostaneme level
+
+predmety
+- inventar
+- zdvihnut
+- polozit
+- rozobrat
+- zlozit
+- pouzit
+- napr:
+    - pocitac
+    - schema
+    - mec
+
+miestnosti:
+- narnia
+- skuskova miestnost
+
+suboje
+- tahove s mecom
+
+npc - postavy
+- ucitel
+- rektor
+- bufetarka - predava zbrane
+- kucharka - doplna zivoty
+- studijna referentka - poradi, ked treba
+- knihovnicka
+
+hrac
+- zivoty
+- body
+- levely
