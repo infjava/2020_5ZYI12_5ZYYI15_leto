@@ -34,6 +34,7 @@ public class Svet {
         vchod.postavNpc(new Npc("bufetarka"));
 
         ic.nastavVychod("zapad", vchod);
+        ic.postavNpc(new Npc("knihovnicka"));
 
         ciscoLaboratorium.nastavVychod("dole", chodbaB);
 
