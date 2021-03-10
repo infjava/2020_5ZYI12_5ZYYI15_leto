@@ -35,3 +35,44 @@ hrac
 - zivoty
 - body
 - levely
+
+Rozhovor s bufetarkou:
+> oslov bufetarka
+1) Ako sa mate?
+2) Dnes je ale krasne pocasie
+Co chces povedat? 1
+Joj, ani sa nepytaj, prave ma vykradli
+1) Utekam chytit zlodeja
+2) Tak Vam treba
+Co chces povedat? 2
+Padaj prec
+
+> oslov bufetarka
+1) Ako sa mate?
+2) Dnes je ale krasne pocasie
+Co chces povedat? 1
+Joj, ani sa nepytaj, prave ma vykradli
+1) Utekam chytit zlodeja
+2) Tak Vam treba
+Co chces povedat? 1
+Joj, to si krasny, velmi dakujem
+
+> oslov bufetarka
+1) Ako sa mate?
+2) Dnes je ale krasne pocasie
+Co chces povedat? 2
+Krasne? Ved prsi. Daj si navleky!
+1) Nemam
+2) Uz na to idem
+Co chces povedat? 1
+Tu mas
+
+> oslov bufetarka
+1) Ako sa mate?
+2) Dnes je ale krasne pocasie
+Co chces povedat? 2
+Krasne? Ved prsi. Daj si navleky!
+1) Nemam
+2) Uz na to idem
+Co chces povedat? 2
+Super, a teraz padaj prec
