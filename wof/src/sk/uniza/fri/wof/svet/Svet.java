@@ -45,7 +45,7 @@ public class Svet {
         skrina.nastavVychod("von", skusobnaMiestnost);
         skrina.nastavVychod("narnia", narnia);
 
-        narnia. nastavVychod("skrina", skrina);
+        narnia.nastavVychod("skrina", skrina);
 
         this.startovaciaMiestnost = vchod;
     }
