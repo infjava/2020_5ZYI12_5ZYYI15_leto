@@ -4,31 +4,50 @@ public class Svet {
     private final Miestnost startovaciaMiestnost;
 
     public Svet() {
-        // vytvorenie miestnosti
-        Miestnost terasa = new Miestnost("terasa - hlavny vstup na fakultu");
-        Miestnost aula = new Miestnost("aula");
-        Miestnost bufet = new Miestnost("bufet");
-        Miestnost labak = new Miestnost("pocitacove laboratorium");
-        Miestnost kancelaria = new Miestnost("kancelaria spravcu pocitacoveho laboratoria");
-        Miestnost skrina = new Miestnost("skrina na vybavenie laboratoria");
+        Miestnost ra13 = new Miestnost("RA013 - laboratorium plne pocitacov");
+        Miestnost chodbaA = new Miestnost("Chodba A - dlhocizna chodba v budove A");
+        Miestnost jedalen = new Miestnost("Jedalen - hmmm... tu to krasne vonia...");
+        Miestnost chodbaC = new Miestnost("Chodba C - temna chodba v podzemi");
+        Miestnost vchod = new Miestnost("Vchod - pani vratnicka kazdemu mera teplotu");
+        Miestnost ic = new Miestnost("IC - vidis plno mudrych knih");
+        Miestnost ciscoLaboratorium = new Miestnost("Cisco laboratorium - pocuvas a nic nepocujes - huciace switche vsetko prehlusia");
+        Miestnost chodbaB = new Miestnost("Chodba B - tmava chodba so svetlou chill zonou");
+        Miestnost skusobnaMiestnost = new Miestnost("Skusobna miestnost - tu ta caka skuska ohnom - teda prakticka skuska z Informatiky");
+        Miestnost skrina = new Miestnost("Skrina - je tu trochu tesno; ale citis prievan");
+        Miestnost narnia = new Miestnost("Narnia - si sa mal teplejsie obliect; asi zabudli vypnut klimatizaciu");
 
-        // inicializacia miestnosti = nastavenie vychodov
-        terasa.nastavVychod("vychod", aula);
-        terasa.nastavVychod("juh", labak);
-        terasa.nastavVychod("zapad", bufet);
-        aula.nastavVychod("zapad", terasa);
-        bufet.nastavVychod("vychod", terasa);
-        labak.nastavVychod("sever", terasa);
-        labak.nastavVychod("vychod", kancelaria);
-        kancelaria.nastavVychod("zapad", labak);
+        ra13.nastavVychod("juh", chodbaA);
 
-        labak.nastavVychod("skrina", skrina);
-        skrina.nastavVychod("von", labak);
+        chodbaA.nastavVychod("dole", chodbaC);
+        chodbaA.nastavVychod("sever", ra13);
+        chodbaA.nastavVychod("juh", vchod);
 
-        aula.nastavVychod("dole", bufet);
-        bufet.nastavVychod("hore", aula);
+        jedalen.nastavVychod("vychod", chodbaC);
 
-        this.startovaciaMiestnost = terasa;
+        chodbaC.nastavVychod("zapad", jedalen);
+        chodbaC.nastavVychod("hore", chodbaA);
+
+        vchod.nastavVychod("sever", chodbaA);
+        vchod.nastavVychod("vychod", ic);
+        vchod.nastavVychod("juh", chodbaB);
+
+        ic.nastavVychod("zapad", vchod);
+
+        ciscoLaboratorium.nastavVychod("dole", chodbaB);
+
+        chodbaB.nastavVychod("hore", ciscoLaboratorium);
+        chodbaB.nastavVychod("sever", vchod);
+        chodbaB.nastavVychod("vychod", skusobnaMiestnost);
+
+        skusobnaMiestnost.nastavVychod("zapad", chodbaB);
+        skusobnaMiestnost.nastavVychod("skrina", skrina);
+
+        skrina.nastavVychod("von", skusobnaMiestnost);
+        skrina.nastavVychod("narnia", narnia);
+
+        narnia. nastavVychod("skrina", skrina);
+
+        this.startovaciaMiestnost = vchod;
     }
 
     public Miestnost getStartovaciaMiestnost() {
