@@ -15,7 +15,7 @@ import sk.uniza.fri.wof.hra.Hrac;
 public class VykonavaniePrikazov {
     // konstantne pole nazvov prikazov
     private static final String[] PLATNE_PRIKAZY = {
-        "chod", "ukonci", "pomoc"
+        "chod", "ukonci", "pomoc", "oslov"
     };
 
     /**
@@ -58,9 +58,17 @@ public class VykonavaniePrikazov {
                 return false;
             case "ukonci":
                 return this.ukonciHru(prikaz);
+            case "oslov":
+                this.oslovNpc(prikaz, hrac);
+                return false;
             default:
                 return false;
         }
+    }
+
+    private void oslovNpc(Prikaz prikaz, Hrac hrac) {
+        System.out.println("Oslovil si " + prikaz.getParameter());
+
     }
 
     /**
