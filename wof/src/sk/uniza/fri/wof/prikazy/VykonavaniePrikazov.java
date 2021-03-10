@@ -71,7 +71,11 @@ public class VykonavaniePrikazov {
     private void oslovNpc(Prikaz prikaz, Hrac hrac) {
         Miestnost miestnost = hrac.getAktualnaMiestnost();
         Npc npc = miestnost.getNpc(prikaz.getParameter());
-        npc.rozhovor();
+        if (npc != null) {
+            npc.rozhovor();
+        } else {
+            System.out.printf("NPC %s sa v miestnosti nenachadza!%n", prikaz.getParameter());
+        }
     }
 
     /**
