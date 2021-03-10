@@ -1,5 +1,6 @@
 package sk.uniza.fri.wof.svet;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 /**
@@ -17,6 +18,7 @@ import java.util.TreeMap;
 public class Miestnost {
     private final String popisMiestnosti;
     private final TreeMap<String, Miestnost> vychody;
+    private final ArrayList<Npc> npccka;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -28,6 +30,7 @@ public class Miestnost {
     public Miestnost(String popis) {
         this.popisMiestnosti = popis;
         this.vychody = new TreeMap<>();
+        this.npccka = new ArrayList<>();
     }
 
     public void nastavVychod(String smer, Miestnost ciel) {
@@ -48,9 +51,20 @@ public class Miestnost {
             System.out.format("%s ", smer);
         }
         System.out.println();
+        if (!this.npccka.isEmpty()) {
+            System.out.print("NPC: ");
+            for (Npc npc : this.npccka) {
+                System.out.format("%s ", npc.getNazov());
+            }
+            System.out.println();
+        }
     }
 
     public Miestnost getMiestnostVSmere(String smer) {
         return this.vychody.get(smer);
+    }
+
+    public void postavNpc(Npc npc) {
+        this.npccka.add(npc);
     }
 }
