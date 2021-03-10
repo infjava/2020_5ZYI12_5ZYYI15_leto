@@ -10,4 +10,8 @@ public class Npc {
     public String getNazov() {
         return this.nazov;
     }
+
+    public void rozhovor() {
+        System.out.printf("Rozpravas sa s %s%n", this.nazov);
+    }
 }
