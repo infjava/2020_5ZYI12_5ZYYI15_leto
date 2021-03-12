@@ -6,7 +6,7 @@ public class CastRozhovoru {
     private final String replikaNpc;
     private final String[] replikyHraca;
 
-    public CastRozhovoru(String replikaNpc, String[] replikyHraca) {
+    public CastRozhovoru(String replikaNpc, String... replikyHraca) {
         this.replikaNpc = replikaNpc;
         this.replikyHraca = replikyHraca;
     }
@@ -16,6 +16,10 @@ public class CastRozhovoru {
 
         if (this.replikaNpc != null) {
             System.out.println(this.replikaNpc);
+        }
+
+        if (this.replikyHraca.length == 0) {
+            return 0;
         }
 
         int no = 1;

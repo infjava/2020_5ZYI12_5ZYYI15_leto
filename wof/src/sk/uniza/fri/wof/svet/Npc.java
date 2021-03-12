@@ -17,30 +17,31 @@ public class Npc {
         Scanner vstup = new Scanner(System.in);
         switch (this.nazov) {
             case "bufetarka":
-                CastRozhovoru uvod = new CastRozhovoru(null, new String[] {"Ako sa mate?", "Dnes je ale krasne pocasie"});
+                CastRozhovoru uvod = new CastRozhovoru(null, "Ako sa mate?", "Dnes je ale krasne pocasie");
                 switch (uvod.vykonaj()) {
                     case 1:
-                        CastRozhovoru aniSaNepytaj = new CastRozhovoru("Joj, ani sa nepytaj, prave ma vykradli", new String[] {"Utekam chytit zlodeja", "Tak Vam treba"});
+                        CastRozhovoru aniSaNepytaj = new CastRozhovoru("Joj, ani sa nepytaj, prave ma vykradli", "Utekam chytit zlodeja", "Tak Vam treba");
                         switch (aniSaNepytaj.vykonaj()) {
                             case 1:
-                                System.out.println("Joj, to si krasny, velmi dakujem");
+                                CastRozhovoru siKrasny = new CastRozhovoru("Joj, to si krasny, velmi dakujem");
+                                siKrasny.vykonaj();
                                 break;
                             case 2:
-                                System.out.println("Padaj prec");
+                                CastRozhovoru padajPrec = new CastRozhovoru("Padaj prec");
+                                padajPrec.vykonaj();
                                 break;
                         }
                         break;
                     case 2:
-                        System.out.println("Krasne? Ved prsi. Daj si navleky!");
-                        System.out.println("1) Nemam");
-                        System.out.println("2) Uz na to idem");
-                        System.out.print("Co chces povedat? ");
-                        switch (vstup.nextLine()) {
-                            case "1":
-                                System.out.println("Tu mas");
+                        CastRozhovoru vedPrsi = new CastRozhovoru("Krasne? Ved prsi. Daj si navleky!", "Nemam", "Uz na to idem");
+                        switch (vedPrsi.vykonaj()) {
+                            case 1:
+                                CastRozhovoru tuMas = new CastRozhovoru("Tu mas");
+                                tuMas.vykonaj();
                                 break;
-                            case "2":
-                                System.out.println("Super, a teraz padaj prec");
+                            case 2:
+                                CastRozhovoru padajPrec = new CastRozhovoru("Super, a teraz padaj prec");
+                                padajPrec.vykonaj();
                                 break;
                         }
                         break;
