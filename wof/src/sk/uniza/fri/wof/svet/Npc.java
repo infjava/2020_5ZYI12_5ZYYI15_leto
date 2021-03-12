@@ -17,25 +17,20 @@ public class Npc {
         Scanner vstup = new Scanner(System.in);
         switch (this.nazov) {
             case "bufetarka":
-                System.out.println("1) Ako sa mate?");
-                System.out.println("2) Dnes je ale krasne pocasie");
-                System.out.print("Co chces povedat? ");
-                switch (vstup.nextLine()) {
-                    case "1":
-                        System.out.println("Joj, ani sa nepytaj, prave ma vykradli");
-                        System.out.println("1) Utekam chytit zlodeja");
-                        System.out.println("2) Tak Vam treba");
-                        System.out.print("Co chces povedat? ");
-                        switch (vstup.nextLine()) {
-                            case "1":
+                CastRozhovoru uvod = new CastRozhovoru(null, new String[] {"Ako sa mate?", "Dnes je ale krasne pocasie"});
+                switch (uvod.vykonaj()) {
+                    case 1:
+                        CastRozhovoru aniSaNepytaj = new CastRozhovoru("Joj, ani sa nepytaj, prave ma vykradli", new String[] {"Utekam chytit zlodeja", "Tak Vam treba"});
+                        switch (aniSaNepytaj.vykonaj()) {
+                            case 1:
                                 System.out.println("Joj, to si krasny, velmi dakujem");
                                 break;
-                            case "2":
+                            case 2:
                                 System.out.println("Padaj prec");
                                 break;
                         }
                         break;
-                    case "2":
+                    case 2:
                         System.out.println("Krasne? Ved prsi. Daj si navleky!");
                         System.out.println("1) Nemam");
                         System.out.println("2) Uz na to idem");
