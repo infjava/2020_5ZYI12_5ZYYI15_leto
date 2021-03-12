@@ -1,8 +1,8 @@
 package sk.uniza.fri.wof.prikazy;
 
 import sk.uniza.fri.wof.hra.Hrac;
+import sk.uniza.fri.wof.svet.INpc;
 import sk.uniza.fri.wof.svet.Miestnost;
-import sk.uniza.fri.wof.svet.Npc;
 
 /**
  * Trieda NazvyPrikazov udrzuje zoznam nazvov platnych prikazov hry. 
@@ -70,7 +70,7 @@ public class VykonavaniePrikazov {
 
     private void oslovNpc(Prikaz prikaz, Hrac hrac) {
         Miestnost miestnost = hrac.getAktualnaMiestnost();
-        Npc npc = miestnost.getNpc(prikaz.getParameter());
+        INpc npc = miestnost.getNpc(prikaz.getParameter());
         if (npc != null) {
             npc.rozhovor();
         } else {

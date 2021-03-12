@@ -31,10 +31,10 @@ public class Svet {
         vchod.nastavVychod("vychod", ic);
         vchod.nastavVychod("juh", chodbaB);
 
-        vchod.postavNpc(new Npc("bufetarka"));
+        vchod.postavNpc(new Bufetarka());
 
         ic.nastavVychod("zapad", vchod);
-        ic.postavNpc(new Npc("knihovnicka"));
+        ic.postavNpc(new Knihovnicka());
 
         ciscoLaboratorium.nastavVychod("dole", chodbaB);
 
