@@ -1,6 +1,7 @@
 package sk.uniza.fri.wof.svet;
 
 import java.util.HashMap;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -19,6 +20,7 @@ public class Miestnost {
     private final String popisMiestnosti;
     private final TreeMap<String, Miestnost> vychody;
     private final HashMap<String, Npc> npccka;
+    private final HashMap<String, Predmet> predmety;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -31,6 +33,7 @@ public class Miestnost {
         this.popisMiestnosti = popis;
         this.vychody = new TreeMap<>();
         this.npccka = new HashMap<>();
+        this.predmety = new HashMap<>();
     }
 
     public void nastavVychod(String smer, Miestnost ciel) {
@@ -46,14 +49,15 @@ public class Miestnost {
 
     public void vypisInfoOMiestnosti() {
         System.out.println("Teraz si v miestnosti " + this.getPopis());
-        System.out.print("Vychody: ");
-        for (String smer : this.vychody.keySet()) {
-            System.out.format("%s ", smer);
-        }
-        System.out.println();
-        if (!this.npccka.isEmpty()) {
-            System.out.print("NPC: ");
-            for (String nazov : this.npccka.keySet()) {
+        this.vypisZoznam("Vychody", this.vychody.keySet());
+        this.vypisZoznam("NPC", this.npccka.keySet());
+        this.vypisZoznam("Predmety", this.predmety.keySet());
+    }
+
+    private void vypisZoznam(String nadpis, Set<String> polozky) {
+        if (!polozky.isEmpty()) {
+            System.out.format("%s: ", nadpis);
+            for (String nazov : polozky) {
                 System.out.format("%s ", nazov);
             }
             System.out.println();
@@ -70,5 +74,9 @@ public class Miestnost {
 
     public Npc getNpc(String nazov) {
         return this.npccka.get(nazov);
+    }
+
+    public void polozPredmet(Predmet predmet) {
+        this.predmety.put(predmet.getNazov(), predmet);
     }
 }

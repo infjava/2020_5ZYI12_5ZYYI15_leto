@@ -53,6 +53,8 @@ public class Svet {
 
         vchod.postavNpc(new Npc("bufetarka", uvodBufetarky));
 
+        vchod.polozPredmet(new Predmet("pocitac"));
+
         ic.nastavVychod("zapad", vchod);
 
         CastRozhovoru nicNehovori = new CastRozhovoru(
