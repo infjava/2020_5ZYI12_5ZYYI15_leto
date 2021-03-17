@@ -18,7 +18,7 @@ import java.util.TreeMap;
 public class Miestnost {
     private final String popisMiestnosti;
     private final TreeMap<String, Miestnost> vychody;
-    private final HashMap<String, INpc> npccka;
+    private final HashMap<String, Npc> npccka;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -64,11 +64,11 @@ public class Miestnost {
         return this.vychody.get(smer);
     }
 
-    public void postavNpc(INpc npc) {
+    public void postavNpc(Npc npc) {
         this.npccka.put(npc.getNazov(), npc);
     }
 
-    public INpc getNpc(String nazov) {
+    public Npc getNpc(String nazov) {
         return this.npccka.get(nazov);
     }
 }

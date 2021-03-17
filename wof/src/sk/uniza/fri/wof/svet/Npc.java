@@ -1,21 +1,19 @@
 package sk.uniza.fri.wof.svet;
 
-public class Knihovnicka implements INpc {
+public class Npc {
 
     private final String meno;
     private final CastRozhovoru uvod;
 
-    public Knihovnicka(String meno, CastRozhovoru uvodKnihovnicky) {
+    public Npc(String meno, CastRozhovoru uvodRozhovoru) {
         this.meno = meno;
-        this.uvod = uvodKnihovnicky;
+        this.uvod = uvodRozhovoru;
     }
 
-    @Override
     public String getNazov() {
         return this.meno;
     }
 
-    @Override
     public void rozhovor() {
         CastRozhovoru aktualna = this.uvod;
         do {

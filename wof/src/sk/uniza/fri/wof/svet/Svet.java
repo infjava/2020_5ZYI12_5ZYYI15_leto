@@ -51,7 +51,7 @@ public class Svet {
                 new ReplikaHraca("Dnes je ale krasne pocasie", vedPrsi)
         );
 
-        vchod.postavNpc(new Bufetarka("bufetarka", uvodBufetarky));
+        vchod.postavNpc(new Npc("bufetarka", uvodBufetarky));
 
         ic.nastavVychod("zapad", vchod);
 
@@ -63,7 +63,7 @@ public class Svet {
                 new ReplikaHraca("A preco?", nicNehovori)
         );
 
-        ic.postavNpc(new Knihovnicka("knihovnicka", uvodKnihovnicky));
+        ic.postavNpc(new Npc("knihovnicka", uvodKnihovnicky));
 
         ciscoLaboratorium.nastavVychod("dole", chodbaB);
 
