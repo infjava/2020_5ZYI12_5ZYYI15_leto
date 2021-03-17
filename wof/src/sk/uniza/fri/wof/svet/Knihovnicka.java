@@ -8,6 +8,17 @@ public class Knihovnicka implements INpc {
 
     @Override
     public void rozhovor() {
-        System.out.println("Knihovnicka sa s tebou nechce rozpravat");
+        CastRozhovoru nicNehovori = new CastRozhovoru(
+                "Knihovnicka dalej mlci"
+        );
+        CastRozhovoru uvod = new CastRozhovoru(
+                "Knihovnicka sa s tebou nechce rozpravat",
+                new ReplikaHraca("A preco?", nicNehovori)
+        );
+
+        CastRozhovoru aktualna = uvod;
+        do {
+            aktualna = aktualna.vykonaj();
+        } while (aktualna != null);
     }
 }
