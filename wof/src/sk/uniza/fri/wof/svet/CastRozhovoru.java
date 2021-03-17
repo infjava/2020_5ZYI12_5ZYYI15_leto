@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class CastRozhovoru {
     private final String replikaNpc;
-    private final String[] replikyHraca;
+    private final ReplikaHraca[] replikyHraca;
 
-    public CastRozhovoru(String replikaNpc, String... replikyHraca) {
+    public CastRozhovoru(String replikaNpc, ReplikaHraca... replikyHraca) {
         this.replikaNpc = replikaNpc;
         this.replikyHraca = replikyHraca;
     }
 
-    public int vykonaj() {
+    public CastRozhovoru vykonaj() {
         Scanner vstup = new Scanner(System.in);
 
         if (this.replikaNpc != null) {
@@ -19,12 +19,12 @@ public class CastRozhovoru {
         }
 
         if (this.replikyHraca.length == 0) {
-            return 0;
+            return null;
         }
 
         int no = 1;
-        for (String replika : this.replikyHraca) {
-            System.out.printf("%d) %s%n", no, replika);
+        for (ReplikaHraca replika : this.replikyHraca) {
+            System.out.printf("%d) %s%n", no, replika.getText());
             no++;
         }
 
@@ -39,6 +39,6 @@ public class CastRozhovoru {
             }
         } while (vyber <= 0 || vyber > this.replikyHraca.length);
 
-        return vyber;
+        return this.replikyHraca[vyber - 1].getCielovaCast();
     }
 }
