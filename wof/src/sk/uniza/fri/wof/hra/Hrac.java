@@ -50,4 +50,16 @@ public class Hrac {
         this.inventar.put(nazov, predmet);
         return true;
     }
+
+    public boolean pouziPredmet(String nazov) {
+        Predmet predmet = this.inventar.get(nazov);
+
+        if (predmet == null) {
+            return false;
+        }
+
+        predmet.pouziSa();
+
+        return true;
+    }
 }

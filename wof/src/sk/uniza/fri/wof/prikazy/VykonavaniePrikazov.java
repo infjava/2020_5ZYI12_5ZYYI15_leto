@@ -17,7 +17,7 @@ import sk.uniza.fri.wof.svet.Npc;
 public class VykonavaniePrikazov {
     // konstantne pole nazvov prikazov
     private static final String[] PLATNE_PRIKAZY = {
-        "chod", "ukonci", "pomoc", "oslov", "poloz", "zober"
+        "chod", "ukonci", "pomoc", "oslov", "poloz", "zober", "pouzi"
     };
 
     /**
@@ -69,8 +69,17 @@ public class VykonavaniePrikazov {
             case "poloz":
                 this.polozPredmet(prikaz, hrac);
                 return false;
+            case "pouzi":
+                this.pouziPredmet(prikaz, hrac);
+                return false;
             default:
                 return false;
+        }
+    }
+
+    private void pouziPredmet(Prikaz prikaz, Hrac hrac) {
+        if (!hrac.pouziPredmet(prikaz.getParameter())) {
+            System.out.println("Taky predmet nemas");
         }
     }
 

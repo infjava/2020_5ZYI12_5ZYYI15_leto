@@ -54,6 +54,7 @@ public class Svet {
         vchod.postavNpc(new Npc("bufetarka", uvodBufetarky));
 
         vchod.polozPredmet(new Predmet("pocitac"));
+        vchod.polozPredmet(new Predmet("navleky"));
 
         ic.nastavVychod("zapad", vchod);
 

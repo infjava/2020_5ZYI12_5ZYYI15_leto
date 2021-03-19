@@ -13,10 +13,12 @@ predmety
 - rozobrat
 - zlozit
 - pouzit
+> pouzi nazov
 - napr:
     - pocitac
     - schema
     - mec
+    - navleky - daju sa pouzit (obut/vyzut)
 
 miestnosti:
 - narnia

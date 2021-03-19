@@ -10,4 +10,14 @@ public class Predmet {
     public String getNazov() {
         return this.nazov;
     }
+
+    public void pouziSa() {
+        switch (this.nazov) {
+            case "navleky":
+                System.out.println("Pouzil si navleky");
+                break;
+            default:
+                System.out.format("Predmet %s sa neda pouzit%n", this.nazov);
+        }
+    }
 }
