@@ -29,17 +29,25 @@ public class Hrac {
         return false;
     }
 
-    public void polozPredmet(String nazov) {
+    public boolean polozPredmet(String nazov) {
         Predmet predmet = this.inventar.remove(nazov);
-        if (predmet != null) {
-            this.aktualnaMiestnost.polozPredmet(predmet);
+
+        if (predmet == null) {
+            return false;
         }
+
+        this.aktualnaMiestnost.polozPredmet(predmet);
+        return true;
     }
 
-    public void zoberPredmet(String nazov) {
+    public boolean zoberPredmet(String nazov) {
         Predmet predmet = this.aktualnaMiestnost.zoberPredmet(nazov);
-        if (predmet != null) {
-            this.inventar.put(nazov, predmet);
+
+        if (predmet == null) {
+            return false;
         }
+
+        this.inventar.put(nazov, predmet);
+        return true;
     }
 }

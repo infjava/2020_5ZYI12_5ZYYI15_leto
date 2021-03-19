@@ -75,11 +75,19 @@ public class VykonavaniePrikazov {
     }
 
     private void polozPredmet(Prikaz prikaz, Hrac hrac) {
-        hrac.polozPredmet(prikaz.getParameter());
+        if (hrac.polozPredmet(prikaz.getParameter())) {
+            System.out.format("Polozil si predmet %s%n", prikaz.getParameter());
+        } else {
+            System.out.println("Taky predmet nemas");
+        }
     }
 
     private void zoberPredmet(Prikaz prikaz, Hrac hrac) {
-        hrac.zoberPredmet(prikaz.getParameter());
+        if (hrac.zoberPredmet(prikaz.getParameter())) {
+            System.out.format("Zdvihol si predmet %s%n", prikaz.getParameter());
+        } else {
+            System.out.println("Taky predmet v miestnosti nevidis");
+        }
     }
 
     private void oslovNpc(Prikaz prikaz, Hrac hrac) {
