@@ -31,11 +31,15 @@ public class Hrac {
 
     public void polozPredmet(String nazov) {
         Predmet predmet = this.inventar.remove(nazov);
-        this.aktualnaMiestnost.polozPredmet(predmet);
+        if (predmet != null) {
+            this.aktualnaMiestnost.polozPredmet(predmet);
+        }
     }
 
     public void zoberPredmet(String nazov) {
         Predmet predmet = this.aktualnaMiestnost.zoberPredmet(nazov);
-        this.inventar.put(nazov, predmet);
+        if (predmet != null) {
+            this.inventar.put(nazov, predmet);
+        }
     }
 }
