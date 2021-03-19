@@ -1,4 +1,4 @@
-package sk.uniza.fri.wof.svet;
+package sk.uniza.fri.wof.svet.npc;
 
 import java.util.Scanner;
 

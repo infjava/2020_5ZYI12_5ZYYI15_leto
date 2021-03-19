@@ -1,4 +1,4 @@
-package sk.uniza.fri.wof.svet;
+package sk.uniza.fri.wof.svet.predmety;
 
 public class Navleky implements IPredmet {
     private boolean suObute;

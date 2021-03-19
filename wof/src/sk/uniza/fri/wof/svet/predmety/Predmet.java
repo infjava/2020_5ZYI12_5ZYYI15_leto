@@ -1,4 +1,4 @@
-package sk.uniza.fri.wof.svet;
+package sk.uniza.fri.wof.svet.predmety;
 
 public class Predmet implements IPredmet {
     private final String nazov;

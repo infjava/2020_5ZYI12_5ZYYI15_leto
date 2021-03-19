@@ -1,6 +1,6 @@
 package sk.uniza.fri.wof.hra;
 
-import sk.uniza.fri.wof.svet.IPredmet;
+import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
 
 import java.util.HashMap;

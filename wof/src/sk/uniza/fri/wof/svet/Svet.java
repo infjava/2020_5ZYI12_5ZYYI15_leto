@@ -1,5 +1,11 @@
 package sk.uniza.fri.wof.svet;
 
+import sk.uniza.fri.wof.svet.npc.CastRozhovoru;
+import sk.uniza.fri.wof.svet.npc.Npc;
+import sk.uniza.fri.wof.svet.npc.ReplikaHraca;
+import sk.uniza.fri.wof.svet.predmety.Navleky;
+import sk.uniza.fri.wof.svet.predmety.Predmet;
+
 public class Svet {
     private final Miestnost startovaciaMiestnost;
 

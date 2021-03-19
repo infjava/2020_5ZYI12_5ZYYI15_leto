@@ -1,4 +1,4 @@
-package sk.uniza.fri.wof.svet;
+package sk.uniza.fri.wof.svet.predmety;
 
 public interface IPredmet {
     String getNazov();

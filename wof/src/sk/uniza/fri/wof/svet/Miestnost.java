@@ -1,5 +1,8 @@
 package sk.uniza.fri.wof.svet;
 
+import sk.uniza.fri.wof.svet.npc.Npc;
+import sk.uniza.fri.wof.svet.predmety.IPredmet;
+
 import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeMap;
