@@ -79,4 +79,8 @@ public class Miestnost {
     public void polozPredmet(Predmet predmet) {
         this.predmety.put(predmet.getNazov(), predmet);
     }
+
+    public Predmet zoberPredmet(String nazov) {
+        return this.predmety.remove(nazov);
+    }
 }
