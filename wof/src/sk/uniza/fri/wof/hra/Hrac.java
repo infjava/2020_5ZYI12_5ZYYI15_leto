@@ -1,13 +1,13 @@
 package sk.uniza.fri.wof.hra;
 
+import sk.uniza.fri.wof.svet.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
-import sk.uniza.fri.wof.svet.Predmet;
 
 import java.util.HashMap;
 
 public class Hrac {
     private Miestnost aktualnaMiestnost;
-    private final HashMap<String, Predmet> inventar;
+    private final HashMap<String, IPredmet> inventar;
 
     public Hrac(Miestnost pociatocnaMiestnost) {
         this.aktualnaMiestnost = pociatocnaMiestnost;
@@ -30,7 +30,7 @@ public class Hrac {
     }
 
     public boolean polozPredmet(String nazov) {
-        Predmet predmet = this.inventar.remove(nazov);
+        IPredmet predmet = this.inventar.remove(nazov);
 
         if (predmet == null) {
             return false;
@@ -41,7 +41,7 @@ public class Hrac {
     }
 
     public boolean zoberPredmet(String nazov) {
-        Predmet predmet = this.aktualnaMiestnost.zoberPredmet(nazov);
+        IPredmet predmet = this.aktualnaMiestnost.zoberPredmet(nazov);
 
         if (predmet == null) {
             return false;
@@ -52,7 +52,7 @@ public class Hrac {
     }
 
     public boolean pouziPredmet(String nazov) {
-        Predmet predmet = this.inventar.get(nazov);
+        IPredmet predmet = this.inventar.get(nazov);
 
         if (predmet == null) {
             return false;

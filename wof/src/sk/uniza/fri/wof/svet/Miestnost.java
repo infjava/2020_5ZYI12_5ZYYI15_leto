@@ -20,7 +20,7 @@ public class Miestnost {
     private final String popisMiestnosti;
     private final TreeMap<String, Miestnost> vychody;
     private final HashMap<String, Npc> npccka;
-    private final HashMap<String, Predmet> predmety;
+    private final HashMap<String, IPredmet> predmety;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -76,11 +76,11 @@ public class Miestnost {
         return this.npccka.get(nazov);
     }
 
-    public void polozPredmet(Predmet predmet) {
+    public void polozPredmet(IPredmet predmet) {
         this.predmety.put(predmet.getNazov(), predmet);
     }
 
-    public Predmet zoberPredmet(String nazov) {
+    public IPredmet zoberPredmet(String nazov) {
         return this.predmety.remove(nazov);
     }
 }
