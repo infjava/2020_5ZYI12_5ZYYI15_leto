@@ -1,6 +1,6 @@
 package sk.uniza.fri.wof.svet.predmety;
 
-public class Navleky implements IPredmet {
+public class Navleky implements IPredmet, IKontrolaPolozenia {
     private boolean suObute;
 
     public Navleky() {

@@ -1,5 +1,6 @@
 package sk.uniza.fri.wof.hra;
 
+import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
 
@@ -36,8 +37,11 @@ public class Hrac {
             return false;
         }
 
-        if (!predmet.getDaSaPolozit()) {
-            return false;
+        if (predmet instanceof IKontrolaPolozenia) {
+            IKontrolaPolozenia kontrola = (IKontrolaPolozenia)predmet;
+            if (!kontrola.getDaSaPolozit()) {
+                return false;
+            }
         }
 
         this.inventar.remove(nazov);

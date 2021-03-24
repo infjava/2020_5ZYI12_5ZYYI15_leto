@@ -4,6 +4,4 @@ public interface IPredmet {
     String getNazov();
 
     void pouziSa();
-
-    boolean getDaSaPolozit();
 }
