@@ -2,7 +2,6 @@ package sk.uniza.fri.wof.hra;
 
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
-import sk.uniza.fri.wof.svet.predmety.Navleky;
 
 import java.util.HashMap;
 
@@ -37,11 +36,8 @@ public class Hrac {
             return false;
         }
 
-        if (predmet instanceof Navleky) {
-            Navleky navleky = (Navleky)predmet;
-            if (navleky.getSuObute()) {
-                return false;
-            }
+        if (!predmet.getDaSaPolozit()) {
+            return false;
         }
 
         this.inventar.remove(nazov);

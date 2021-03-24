@@ -16,4 +16,9 @@ public class Predmet implements IPredmet {
     public void pouziSa() {
         System.out.format("Predmet %s sa neda pouzit%n", this.nazov);
     }
+
+    @Override
+    public boolean getDaSaPolozit() {
+        return true;
+    }
 }

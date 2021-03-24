@@ -23,7 +23,8 @@ public class Navleky implements IPredmet {
         }
     }
 
-    public boolean getSuObute() {
-        return this.suObute;
+    @Override
+    public boolean getDaSaPolozit() {
+        return !this.suObute;
     }
 }
