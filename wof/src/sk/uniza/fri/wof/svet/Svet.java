@@ -1,7 +1,7 @@
 package sk.uniza.fri.wof.svet;
 
 import sk.uniza.fri.wof.svet.npc.CastRozhovoru;
-import sk.uniza.fri.wof.svet.npc.Npc;
+import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;
 import sk.uniza.fri.wof.svet.npc.ReplikaHraca;
 import sk.uniza.fri.wof.svet.predmety.Navleky;
 import sk.uniza.fri.wof.svet.predmety.Predmet;
@@ -57,7 +57,7 @@ public class Svet {
                 new ReplikaHraca("Dnes je ale krasne pocasie", vedPrsi)
         );
 
-        vchod.postavNpc(new Npc("bufetarka", uvodBufetarky));
+        vchod.postavNpc(new NpcSRozhovorom("bufetarka", uvodBufetarky));
 
         vchod.polozPredmet(new Predmet("pocitac"));
         vchod.polozPredmet(new Navleky());
@@ -72,7 +72,7 @@ public class Svet {
                 new ReplikaHraca("A preco?", nicNehovori)
         );
 
-        ic.postavNpc(new Npc("knihovnicka", uvodKnihovnicky));
+        ic.postavNpc(new NpcSRozhovorom("knihovnicka", uvodKnihovnicky));
 
         ciscoLaboratorium.nastavVychod("dole", chodbaB);
 
