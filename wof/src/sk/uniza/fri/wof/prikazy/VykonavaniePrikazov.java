@@ -4,6 +4,7 @@ import sk.uniza.fri.wof.hra.Hrac;
 import sk.uniza.fri.wof.svet.Miestnost;
 import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;
+import sk.uniza.fri.wof.svet.npc.Obchodnik;
 
 /**
  * Trieda NazvyPrikazov udrzuje zoznam nazvov platnych prikazov hry. 
@@ -18,7 +19,8 @@ import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;
 public class VykonavaniePrikazov {
     // konstantne pole nazvov prikazov
     private static final String[] PLATNE_PRIKAZY = {
-        "chod", "ukonci", "pomoc", "oslov", "poloz", "zober", "pouzi"
+        "chod", "ukonci", "pomoc", "oslov", "poloz", "zober", "pouzi",
+        "nakupuj"
     };
 
     /**
@@ -73,8 +75,22 @@ public class VykonavaniePrikazov {
             case "pouzi":
                 this.pouziPredmet(prikaz, hrac);
                 return false;
+            case "nakupuj":
+                this.nakupujOdNpc(prikaz, hrac);
+                return false;
             default:
                 return false;
+        }
+    }
+
+    private void nakupujOdNpc(Prikaz prikaz, Hrac hrac) {
+        Miestnost miestnost = hrac.getAktualnaMiestnost();
+        Npc npc = miestnost.getNpc(prikaz.getParameter());
+        if (npc instanceof Obchodnik) {
+            Obchodnik obchodnik = (Obchodnik)npc;
+            obchodnik.nakupuj(hrac);
+        } else {
+            System.out.printf("NPC %s sa v miestnosti nenachadza!%n", prikaz.getParameter());
         }
     }
 

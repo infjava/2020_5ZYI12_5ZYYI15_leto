@@ -72,4 +72,8 @@ public class Hrac {
 
         return true;
     }
+
+    public void prijmiPredmet(IPredmet predmet) {
+        this.inventar.put(predmet.getNazov(), predmet);
+    }
 }
