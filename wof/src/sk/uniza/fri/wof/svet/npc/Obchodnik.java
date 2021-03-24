@@ -22,6 +22,11 @@ public class Obchodnik extends Npc {
     }
 
     public void nakupuj(Hrac hrac) {
+        if (this.inventar.isEmpty()) {
+            System.out.println("Uz nic nemam");
+            return;
+        }
+
         Scanner vstup = new Scanner(System.in);
 
         int no = 1;
