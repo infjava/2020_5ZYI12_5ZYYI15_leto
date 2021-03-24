@@ -2,6 +2,7 @@ package sk.uniza.fri.wof.svet;
 
 import sk.uniza.fri.wof.svet.npc.CastRozhovoru;
 import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;
+import sk.uniza.fri.wof.svet.npc.Obchodnik;
 import sk.uniza.fri.wof.svet.npc.ReplikaHraca;
 import sk.uniza.fri.wof.svet.predmety.Navleky;
 import sk.uniza.fri.wof.svet.predmety.Predmet;
@@ -51,16 +52,17 @@ public class Svet {
                 new ReplikaHraca("Nemam", tuMas),
                 new ReplikaHraca("Uz na to idem", padajPrec2)
         );
-        CastRozhovoru uvodBufetarky = new CastRozhovoru(
+        CastRozhovoru uvodUpratovacky = new CastRozhovoru(
                 null,
                 new ReplikaHraca("Ako sa mate?", aniSaNepytaj),
                 new ReplikaHraca("Dnes je ale krasne pocasie", vedPrsi)
         );
 
-        vchod.postavNpc(new NpcSRozhovorom("bufetarka", uvodBufetarky));
+        vchod.postavNpc(new NpcSRozhovorom("upratovacka", uvodUpratovacky));
+
+        vchod.postavNpc(new Obchodnik("bufetarka", new Navleky()));
 
         vchod.polozPredmet(new Predmet("pocitac"));
-        vchod.polozPredmet(new Navleky());
 
         ic.nastavVychod("zapad", vchod);
 
