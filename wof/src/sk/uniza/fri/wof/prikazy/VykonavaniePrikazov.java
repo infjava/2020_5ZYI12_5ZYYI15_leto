@@ -20,7 +20,7 @@ public class VykonavaniePrikazov {
     // konstantne pole nazvov prikazov
     private static final String[] PLATNE_PRIKAZY = {
         "chod", "ukonci", "pomoc", "oslov", "poloz", "zober", "pouzi",
-        "nakupuj"
+        "nakupuj", "questbook"
     };
 
     /**
@@ -78,9 +78,16 @@ public class VykonavaniePrikazov {
             case "nakupuj":
                 this.nakupujOdNpc(prikaz, hrac);
                 return false;
+            case "questbook":
+                this.zobrazQuestbook(hrac);
+                return false;
             default:
                 return false;
         }
+    }
+
+    private void zobrazQuestbook(Hrac hrac) {
+        hrac.zobrazQuestbook();
     }
 
     private void nakupujOdNpc(Prikaz prikaz, Hrac hrac) {

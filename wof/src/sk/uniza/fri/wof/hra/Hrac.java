@@ -5,15 +5,18 @@ import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Hrac {
     private Miestnost aktualnaMiestnost;
     private final HashMap<String, IPredmet> inventar;
+    private final ArrayList<Quest> questy;
 
     public Hrac(Miestnost pociatocnaMiestnost) {
         this.aktualnaMiestnost = pociatocnaMiestnost;
         this.inventar = new HashMap<>();
+        this.questy = new ArrayList<Quest>();
     }
 
     public Miestnost getAktualnaMiestnost() {
@@ -79,6 +82,12 @@ public class Hrac {
     }
 
     public void prijmiQuest(Quest quest) {
+        this.questy.add(quest);
+    }
 
+    public void zobrazQuestbook() {
+        for (Quest quest : this.questy) {
+            System.out.println(quest.getNazov());
+        }
     }
 }
