@@ -28,6 +28,12 @@ public class Hrac {
 
         if (novaMiestnost != null) {
             this.aktualnaMiestnost = novaMiestnost;
+
+            if (novaMiestnost.getPopis().startsWith("RA013")) {
+                for (Quest quest : this.questy) {
+                    quest.hracVosielDoLabaku();
+                }
+            }
             return true;
         }
 
@@ -83,6 +89,7 @@ public class Hrac {
 
     public void prijmiQuest(Quest quest) {
         this.questy.add(quest);
+        quest.priradenyHracovi();
     }
 
     public void zobrazQuestbook() {
