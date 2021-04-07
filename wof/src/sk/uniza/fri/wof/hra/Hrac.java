@@ -1,5 +1,6 @@
 package sk.uniza.fri.wof.hra;
 
+import sk.uniza.fri.wof.svet.Quest;
 import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
@@ -75,5 +76,9 @@ public class Hrac {
 
     public void prijmiPredmet(IPredmet predmet) {
         this.inventar.put(predmet.getNazov(), predmet);
+    }
+
+    public void prijmiQuest(Quest quest) {
+
     }
 }

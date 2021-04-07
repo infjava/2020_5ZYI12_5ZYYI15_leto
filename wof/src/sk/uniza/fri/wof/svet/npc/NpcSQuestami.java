@@ -4,7 +4,7 @@ import sk.uniza.fri.wof.hra.Hrac;
 import sk.uniza.fri.wof.svet.Quest;
 
 public class NpcSQuestami extends NpcOslovitelne {
-    private final Quest quest;
+    private Quest quest;
 
     public NpcSQuestami(String meno, Quest quest) {
         super(meno);
@@ -13,6 +13,12 @@ public class NpcSQuestami extends NpcOslovitelne {
 
     @Override
     public void oslov(Hrac hrac) {
-        System.out.println("Davam ti quest");
+        if (this.quest != null) {
+            hrac.prijmiQuest(this.quest);
+            this.quest = null;
+            System.out.println("Dostal si quest, tak makaj");
+        } else {
+            System.out.println("Uz pre teba nemam ziaden quest");
+        }
     }
 }
