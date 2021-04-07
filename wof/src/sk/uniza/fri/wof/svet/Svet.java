@@ -1,6 +1,7 @@
 package sk.uniza.fri.wof.svet;
 
 import sk.uniza.fri.wof.svet.npc.CastRozhovoru;
+import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;
 import sk.uniza.fri.wof.svet.npc.Obchodnik;
 import sk.uniza.fri.wof.svet.npc.ReplikaHraca;
@@ -63,6 +64,8 @@ public class Svet {
         vchod.postavNpc(new Obchodnik("bufetarka", new Navleky()));
 
         vchod.polozPredmet(new Predmet("pocitac"));
+
+        vchod.postavNpc(new NpcSQuestami("rektor", new Quest("utekajDoLabaku")));
 
         ic.nastavVychod("zapad", vchod);
 
