@@ -1,6 +1,8 @@
 package sk.uniza.fri.wof.svet.npc;
 
-public class NpcSRozhovorom extends Npc {
+import sk.uniza.fri.wof.hra.Hrac;
+
+public class NpcSRozhovorom extends NpcOslovitelne {
     private final CastRozhovoru uvod;
 
     public NpcSRozhovorom(String meno, CastRozhovoru uvodRozhovoru) {
@@ -8,7 +10,8 @@ public class NpcSRozhovorom extends Npc {
         this.uvod = uvodRozhovoru;
     }
 
-    public void rozhovor() {
+    @Override
+    public void oslov(Hrac hrac) {
         CastRozhovoru aktualna = this.uvod;
         do {
             aktualna = aktualna.vykonaj();

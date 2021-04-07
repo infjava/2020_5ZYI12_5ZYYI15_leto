@@ -3,7 +3,7 @@ package sk.uniza.fri.wof.prikazy;
 import sk.uniza.fri.wof.hra.Hrac;
 import sk.uniza.fri.wof.svet.Miestnost;
 import sk.uniza.fri.wof.svet.npc.Npc;
-import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;
+import sk.uniza.fri.wof.svet.npc.NpcOslovitelne;
 import sk.uniza.fri.wof.svet.npc.Obchodnik;
 
 /**
@@ -119,9 +119,9 @@ public class VykonavaniePrikazov {
     private void oslovNpc(Prikaz prikaz, Hrac hrac) {
         Miestnost miestnost = hrac.getAktualnaMiestnost();
         Npc npc = miestnost.getNpc(prikaz.getParameter());
-        if (npc instanceof NpcSRozhovorom) {
-            NpcSRozhovorom npcSRozhovorom = (NpcSRozhovorom)npc;
-            npcSRozhovorom.rozhovor();
+        if (npc instanceof NpcOslovitelne) {
+            NpcOslovitelne npcOslovitelne = (NpcOslovitelne)npc;
+            npcOslovitelne.oslov(hrac);
         } else {
             System.out.printf("NPC %s sa v miestnosti nenachadza!%n", prikaz.getParameter());
         }
