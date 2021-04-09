@@ -34,6 +34,14 @@ public class Hrac {
                     quest.hracVosielDoLabaku();
                 }
             }
+
+            ArrayList<Quest> naOdstranenie = new ArrayList<>();
+            for (Quest quest : this.questy) {
+                if (quest.getHotovo()) {
+                    naOdstranenie.add(quest);
+                }
+            }
+            this.questy.removeAll(naOdstranenie);
             return true;
         }
 
