@@ -69,15 +69,7 @@ public class Svet {
 
         ic.nastavVychod("zapad", vchod);
 
-        CastRozhovoru nicNehovori = new CastRozhovoru(
-                "Knihovnicka dalej mlci"
-        );
-        CastRozhovoru uvodKnihovnicky = new CastRozhovoru(
-                "Knihovnicka sa s tebou nechce rozpravat",
-                new ReplikaHraca("A preco?", nicNehovori)
-        );
-
-        ic.postavNpc(new NpcSRozhovorom("knihovnicka", uvodKnihovnicky));
+        ic.postavNpc(new NpcSQuestami("knihovnicka", new QuestKniha()));
 
         ciscoLaboratorium.nastavVychod("dole", chodbaB);
 
