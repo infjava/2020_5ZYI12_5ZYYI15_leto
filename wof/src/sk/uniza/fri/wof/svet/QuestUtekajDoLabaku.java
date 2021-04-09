@@ -2,21 +2,21 @@ package sk.uniza.fri.wof.svet;
 
 import java.util.Date;
 
-public class Quest {
-    private final String nazov;
+public class QuestUtekajDoLabaku implements IQuest {
     private Date casPriradenia;
     private boolean hotovo;
 
-    public Quest(String nazov) {
-        this.nazov = nazov;
+    public QuestUtekajDoLabaku() {
         this.casPriradenia = null;
         this.hotovo = false;
     }
 
+    @Override
     public String getNazov() {
-        return this.nazov;
+        return "utekajDoLabaku";
     }
 
+    @Override
     public void hracVosielDoMiestnosti(Miestnost novaMiestnost) {
         if (!novaMiestnost.getPopis().startsWith("RA013")) {
             return;
@@ -31,10 +31,12 @@ public class Quest {
         }
     }
 
+    @Override
     public boolean getHotovo() {
         return this.hotovo;
     }
 
+    @Override
     public void priradenyHracovi() {
         this.casPriradenia = new Date();
     }

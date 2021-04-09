@@ -65,7 +65,7 @@ public class Svet {
 
         vchod.polozPredmet(new Predmet("pocitac"));
 
-        vchod.postavNpc(new NpcSQuestami("rektor", new Quest("utekajDoLabaku")));
+        vchod.postavNpc(new NpcSQuestami("rektor", new QuestUtekajDoLabaku()));
 
         ic.nastavVychod("zapad", vchod);
 

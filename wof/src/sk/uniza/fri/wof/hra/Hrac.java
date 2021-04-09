@@ -1,6 +1,6 @@
 package sk.uniza.fri.wof.hra;
 
-import sk.uniza.fri.wof.svet.Quest;
+import sk.uniza.fri.wof.svet.IQuest;
 import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
@@ -11,12 +11,12 @@ import java.util.HashMap;
 public class Hrac {
     private Miestnost aktualnaMiestnost;
     private final HashMap<String, IPredmet> inventar;
-    private final ArrayList<Quest> questy;
+    private final ArrayList<IQuest> questy;
 
     public Hrac(Miestnost pociatocnaMiestnost) {
         this.aktualnaMiestnost = pociatocnaMiestnost;
         this.inventar = new HashMap<>();
-        this.questy = new ArrayList<Quest>();
+        this.questy = new ArrayList<>();
     }
 
     public Miestnost getAktualnaMiestnost() {
@@ -29,12 +29,12 @@ public class Hrac {
         if (novaMiestnost != null) {
             this.aktualnaMiestnost = novaMiestnost;
 
-            for (Quest quest : this.questy) {
+            for (IQuest quest : this.questy) {
                 quest.hracVosielDoMiestnosti(novaMiestnost);
             }
 
-            ArrayList<Quest> naOdstranenie = new ArrayList<>();
-            for (Quest quest : this.questy) {
+            ArrayList<IQuest> naOdstranenie = new ArrayList<>();
+            for (IQuest quest : this.questy) {
                 if (quest.getHotovo()) {
                     System.out.printf("Splnil si quest %s%n", quest.getNazov());
                     naOdstranenie.add(quest);
@@ -94,13 +94,13 @@ public class Hrac {
         this.inventar.put(predmet.getNazov(), predmet);
     }
 
-    public void prijmiQuest(Quest quest) {
+    public void prijmiQuest(IQuest quest) {
         this.questy.add(quest);
         quest.priradenyHracovi();
     }
 
     public void zobrazQuestbook() {
-        for (Quest quest : this.questy) {
+        for (IQuest quest : this.questy) {
             System.out.println(quest.getNazov());
         }
     }
