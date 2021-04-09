@@ -1,5 +1,8 @@
 package sk.uniza.fri.wof.svet;
 
+import sk.uniza.fri.wof.hra.Hrac;
+import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
+
 import java.util.Date;
 
 public class QuestUtekajDoLabaku implements IQuest {
@@ -39,5 +42,10 @@ public class QuestUtekajDoLabaku implements IQuest {
     @Override
     public void priradenyHracovi() {
         this.casPriradenia = new Date();
+    }
+
+    @Override
+    public void hracOslovilNpc(Hrac hrac, NpcSQuestami npc) {
+
     }
 }

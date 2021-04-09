@@ -18,6 +18,7 @@ public class NpcSQuestami extends NpcOslovitelne {
             this.quest = null;
             System.out.println("Dostal si quest, tak makaj");
         } else {
+            hrac.oslovilNpc(this);
             System.out.println("Uz pre teba nemam ziaden quest");
         }
     }

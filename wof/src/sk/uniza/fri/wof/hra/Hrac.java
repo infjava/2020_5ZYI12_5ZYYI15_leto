@@ -1,6 +1,7 @@
 package sk.uniza.fri.wof.hra;
 
 import sk.uniza.fri.wof.svet.IQuest;
+import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
@@ -33,18 +34,22 @@ public class Hrac {
                 quest.hracVosielDoMiestnosti(novaMiestnost);
             }
 
-            ArrayList<IQuest> naOdstranenie = new ArrayList<>();
-            for (IQuest quest : this.questy) {
-                if (quest.getHotovo()) {
-                    System.out.printf("Splnil si quest %s%n", quest.getNazov());
-                    naOdstranenie.add(quest);
-                }
-            }
-            this.questy.removeAll(naOdstranenie);
+            this.zistiHotoveQuesty();
             return true;
         }
 
         return false;
+    }
+
+    private void zistiHotoveQuesty() {
+        ArrayList<IQuest> naOdstranenie = new ArrayList<>();
+        for (IQuest quest : this.questy) {
+            if (quest.getHotovo()) {
+                System.out.printf("Splnil si quest %s%n", quest.getNazov());
+                naOdstranenie.add(quest);
+            }
+        }
+        this.questy.removeAll(naOdstranenie);
     }
 
     public boolean polozPredmet(String nazov) {
@@ -103,5 +108,21 @@ public class Hrac {
         for (IQuest quest : this.questy) {
             System.out.println(quest.getNazov());
         }
+    }
+
+    public void oslovilNpc(NpcSQuestami npc) {
+        for (IQuest quest : this.questy) {
+            quest.hracOslovilNpc(this, npc);
+        }
+
+        this.zistiHotoveQuesty();
+    }
+
+    public boolean maPredmet(String nazov) {
+        return this.inventar.containsKey(nazov);
+    }
+
+    public void odstranPredmet(String nazov) {
+        this.inventar.remove(nazov);
     }
 }

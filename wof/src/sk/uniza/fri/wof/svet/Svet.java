@@ -85,6 +85,8 @@ public class Svet {
 
         narnia.nastavVychod("skrina", skrina);
 
+        narnia.polozPredmet(new Predmet("kniha"));
+
         this.startovaciaMiestnost = vchod;
     }
 
