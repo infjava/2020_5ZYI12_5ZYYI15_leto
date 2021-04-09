@@ -24,8 +24,11 @@ public class Quest {
 
         Date aktualnyCas = new Date();
         long rozdielVMilisekundach = aktualnyCas.getTime() - this.casPriradenia.getTime();
-        System.out.format("Od vytvorenia uplynulo %d sekund%n", rozdielVMilisekundach / 1000);
-        this.hotovo = true;
+        if (rozdielVMilisekundach > 20000) {
+            System.out.println("Sorry, si pomaly");
+        } else {
+            this.hotovo = true;
+        }
     }
 
     public boolean getHotovo() {

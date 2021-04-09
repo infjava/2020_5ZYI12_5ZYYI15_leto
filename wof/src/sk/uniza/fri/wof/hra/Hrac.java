@@ -36,6 +36,7 @@ public class Hrac {
             ArrayList<Quest> naOdstranenie = new ArrayList<>();
             for (Quest quest : this.questy) {
                 if (quest.getHotovo()) {
+                    System.out.printf("Splnil si quest %s%n", quest.getNazov());
                     naOdstranenie.add(quest);
                 }
             }
