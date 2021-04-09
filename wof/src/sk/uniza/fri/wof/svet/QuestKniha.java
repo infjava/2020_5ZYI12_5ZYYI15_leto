@@ -2,12 +2,15 @@ package sk.uniza.fri.wof.svet;
 
 import sk.uniza.fri.wof.hra.Hrac;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
+import sk.uniza.fri.wof.svet.predmety.Predmet;
 
 public class QuestKniha implements IQuest {
+    private boolean polozenaKniha;
     private boolean hotovo;
 
     public QuestKniha() {
         this.hotovo = false;
+        this.polozenaKniha = false;
     }
 
     @Override
@@ -17,7 +20,12 @@ public class QuestKniha implements IQuest {
 
     @Override
     public void hracVosielDoMiestnosti(Miestnost novaMiestnost) {
-
+        if (novaMiestnost.getPopis().startsWith("Narnia")) {
+            if (!this.polozenaKniha) {
+                novaMiestnost.polozPredmet(new Predmet("kniha"));
+                this.polozenaKniha = true;
+            }
+        }
     }
 
     @Override
