@@ -29,10 +29,8 @@ public class Hrac {
         if (novaMiestnost != null) {
             this.aktualnaMiestnost = novaMiestnost;
 
-            if (novaMiestnost.getPopis().startsWith("RA013")) {
-                for (Quest quest : this.questy) {
-                    quest.hracVosielDoLabaku();
-                }
+            for (Quest quest : this.questy) {
+                quest.hracVosielDoMiestnosti(novaMiestnost);
             }
 
             ArrayList<Quest> naOdstranenie = new ArrayList<>();
