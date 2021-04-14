@@ -1,6 +1,8 @@
 package sk.uniza.fri.wof.prikazy;
 
 import sk.uniza.fri.wof.hra.Hrac;
+import sk.uniza.fri.wof.hra.PredmetNieJeMoznePolozitException;
+import sk.uniza.fri.wof.hra.PredmetNieJeVInventariException;
 import sk.uniza.fri.wof.svet.Miestnost;
 import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.npc.NpcOslovitelne;
@@ -111,8 +113,10 @@ public class VykonavaniePrikazov {
         try {
             hrac.polozPredmet(prikaz.getParameter());
             System.out.format("Polozil si predmet %s%n", prikaz.getParameter());
-        } catch (UnsupportedOperationException e) {
-            System.out.format("Nieco sa nepodarilo: %s%n", e.getMessage());
+        } catch (PredmetNieJeVInventariException e) {
+            System.out.format("Predmet %s nemas v inventari%n", prikaz.getParameter());
+        } catch (PredmetNieJeMoznePolozitException e) {
+            System.out.format("Predmet %s sa neda v momentalnej situacii polozit%n", prikaz.getParameter());
         }
     }
 

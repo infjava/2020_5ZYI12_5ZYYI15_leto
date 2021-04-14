@@ -57,17 +57,17 @@ public class Hrac {
         this.questy.removeAll(naOdstranenie);
     }
 
-    public void polozPredmet(String nazov) {
+    public void polozPredmet(String nazov) throws PredmetNieJeVInventariException, PredmetNieJeMoznePolozitException {
         IPredmet predmet = this.inventar.get(nazov);
 
         if (predmet == null) {
-            throw new UnsupportedOperationException("Predmet sa nenasiel");
+            throw new PredmetNieJeVInventariException("Predmet sa nenasiel");
         }
 
         if (predmet instanceof IKontrolaPolozenia) {
             IKontrolaPolozenia kontrola = (IKontrolaPolozenia)predmet;
             if (!kontrola.getDaSaPolozit()) {
-                throw new UnsupportedOperationException("Predmet sa neda polozit");
+                throw new PredmetNieJeMoznePolozitException("Predmet sa neda polozit");
             }
         }
 
