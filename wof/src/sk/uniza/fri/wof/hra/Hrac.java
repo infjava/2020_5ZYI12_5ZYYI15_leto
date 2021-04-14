@@ -57,24 +57,23 @@ public class Hrac {
         this.questy.removeAll(naOdstranenie);
     }
 
-    public boolean polozPredmet(String nazov) {
+    public void polozPredmet(String nazov) {
         IPredmet predmet = this.inventar.get(nazov);
 
         if (predmet == null) {
-            return false;
+            throw new UnsupportedOperationException("Predmet sa nenasiel");
         }
 
         if (predmet instanceof IKontrolaPolozenia) {
             IKontrolaPolozenia kontrola = (IKontrolaPolozenia)predmet;
             if (!kontrola.getDaSaPolozit()) {
-                return false;
+                throw new UnsupportedOperationException("Predmet sa neda polozit");
             }
         }
 
         this.inventar.remove(nazov);
 
         this.aktualnaMiestnost.polozPredmet(predmet);
-        return true;
     }
 
     public boolean zoberPredmet(String nazov) {

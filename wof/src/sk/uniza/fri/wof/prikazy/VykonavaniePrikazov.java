@@ -108,10 +108,11 @@ public class VykonavaniePrikazov {
     }
 
     private void polozPredmet(Prikaz prikaz, Hrac hrac) {
-        if (hrac.polozPredmet(prikaz.getParameter())) {
+        try {
+            hrac.polozPredmet(prikaz.getParameter());
             System.out.format("Polozil si predmet %s%n", prikaz.getParameter());
-        } else {
-            System.out.println("Taky predmet nemas");
+        } catch (UnsupportedOperationException e) {
+            System.out.format("Nieco sa nepodarilo: %s%n", e.getMessage());
         }
     }
 
