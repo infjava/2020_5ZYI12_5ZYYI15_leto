@@ -1,12 +1,12 @@
 package sk.uniza.fri.wof.svet.npc;
 
 import sk.uniza.fri.wof.hra.Hrac;
-import sk.uniza.fri.wof.hra.questy.IQuest;
+import sk.uniza.fri.wof.hra.questy.Quest;
 
 public class NpcSQuestami extends NpcOslovitelne {
-    private IQuest quest;
+    private Quest quest;
 
-    public NpcSQuestami(String meno, IQuest quest) {
+    public NpcSQuestami(String meno, Quest quest) {
         super(meno);
         this.quest = quest;
     }

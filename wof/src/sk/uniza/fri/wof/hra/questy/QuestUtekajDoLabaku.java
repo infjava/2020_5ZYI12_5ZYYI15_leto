@@ -4,13 +4,11 @@ import sk.uniza.fri.wof.svet.Miestnost;
 
 import java.util.Date;
 
-public class QuestUtekajDoLabaku implements IQuest, IQuestReakciaNaChodenie, IQuestReakciaNaZmenuStavu {
+public class QuestUtekajDoLabaku extends Quest implements IQuestReakciaNaChodenie, IQuestReakciaNaZmenuStavu {
     private Date casPriradenia;
-    private boolean hotovo;
 
     public QuestUtekajDoLabaku() {
         this.casPriradenia = null;
-        this.hotovo = false;
     }
 
     @Override
@@ -29,13 +27,8 @@ public class QuestUtekajDoLabaku implements IQuest, IQuestReakciaNaChodenie, IQu
         if (rozdielVMilisekundach > 20000) {
             System.out.println("Sorry, si pomaly");
         } else {
-            this.hotovo = true;
+            this.vyries();
         }
-    }
-
-    @Override
-    public boolean getHotovo() {
-        return this.hotovo;
     }
 
     @Override

@@ -5,12 +5,10 @@ import sk.uniza.fri.wof.svet.Miestnost;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.predmety.Predmet;
 
-public class QuestKniha implements IQuest, IQuestReakciaNaChodenie, IQuestReakciaNaNpc {
+public class QuestKniha extends Quest implements IQuestReakciaNaChodenie, IQuestReakciaNaNpc {
     private boolean polozenaKniha;
-    private boolean hotovo;
 
     public QuestKniha() {
-        this.hotovo = false;
         this.polozenaKniha = false;
     }
 
@@ -30,15 +28,10 @@ public class QuestKniha implements IQuest, IQuestReakciaNaChodenie, IQuestReakci
     }
 
     @Override
-    public boolean getHotovo() {
-        return this.hotovo;
-    }
-
-    @Override
     public void hracOslovilNpc(Hrac hrac, NpcSQuestami npc) {
         if (npc.getNazov().equals("knihovnicka")) {
             if (hrac.maPredmet("kniha")) {
-                this.hotovo = true;
+                this.vyries();
                 hrac.odstranPredmet("kniha");
             }
         }
