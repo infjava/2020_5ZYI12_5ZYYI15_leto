@@ -1,6 +1,6 @@
 package sk.uniza.fri.wof.hra;
 
-import sk.uniza.fri.wof.svet.IQuest;
+import sk.uniza.fri.wof.hra.questy.IQuest;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;

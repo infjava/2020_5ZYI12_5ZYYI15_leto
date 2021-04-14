@@ -1,5 +1,7 @@
 package sk.uniza.fri.wof.svet;
 
+import sk.uniza.fri.wof.hra.questy.QuestKniha;
+import sk.uniza.fri.wof.hra.questy.QuestUtekajDoLabaku;
 import sk.uniza.fri.wof.svet.npc.CastRozhovoru;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;

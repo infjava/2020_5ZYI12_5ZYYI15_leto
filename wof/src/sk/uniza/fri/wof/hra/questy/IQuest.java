@@ -1,6 +1,7 @@
-package sk.uniza.fri.wof.svet;
+package sk.uniza.fri.wof.hra.questy;
 
 import sk.uniza.fri.wof.hra.Hrac;
+import sk.uniza.fri.wof.svet.Miestnost;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 
 public interface IQuest {
