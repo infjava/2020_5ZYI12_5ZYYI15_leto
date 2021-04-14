@@ -27,23 +27,22 @@ public class Hrac {
         return this.aktualnaMiestnost;
     }
 
-    public boolean chodSmerom(String smer) {
+    public void chodSmerom(String smer) throws NeexistujuciVychodException {
         Miestnost novaMiestnost = this.aktualnaMiestnost.getMiestnostVSmere(smer);
 
-        if (novaMiestnost != null) {
-            this.aktualnaMiestnost = novaMiestnost;
-
-            for (Quest quest : this.questy) {
-                if (quest instanceof IQuestReakciaNaChodenie) {
-                    ((IQuestReakciaNaChodenie)quest).hracVosielDoMiestnosti(novaMiestnost);
-                }
-            }
-
-            this.zistiHotoveQuesty();
-            return true;
+        if (novaMiestnost == null) {
+            throw new NeexistujuciVychodException(smer);
         }
 
-        return false;
+        this.aktualnaMiestnost = novaMiestnost;
+
+        for (Quest quest : this.questy) {
+            if (quest instanceof IQuestReakciaNaChodenie) {
+                ((IQuestReakciaNaChodenie)quest).hracVosielDoMiestnosti(novaMiestnost);
+            }
+        }
+
+        this.zistiHotoveQuesty();
     }
 
     private void zistiHotoveQuesty() {

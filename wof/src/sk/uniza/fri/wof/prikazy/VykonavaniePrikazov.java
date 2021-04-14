@@ -1,6 +1,7 @@
 package sk.uniza.fri.wof.prikazy;
 
 import sk.uniza.fri.wof.hra.Hrac;
+import sk.uniza.fri.wof.hra.NeexistujuciVychodException;
 import sk.uniza.fri.wof.hra.PredmetNieJeMoznePolozitException;
 import sk.uniza.fri.wof.hra.PredmetNieJeVInventariException;
 import sk.uniza.fri.wof.hra.PredmetNieJeVMiestnostiException;
@@ -170,9 +171,10 @@ public class VykonavaniePrikazov {
 
         String smer = prikaz.getParameter();
 
-        if (hrac.chodSmerom(smer)) {
+        try {
+            hrac.chodSmerom(smer);
             hrac.getAktualnaMiestnost().vypisInfoOMiestnosti();
-        } else {
+        } catch (NeexistujuciVychodException e) {
             System.out.println("Tam nie je vychod!");
         }
     }
