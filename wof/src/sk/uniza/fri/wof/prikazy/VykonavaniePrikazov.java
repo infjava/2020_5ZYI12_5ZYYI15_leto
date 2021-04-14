@@ -3,6 +3,7 @@ package sk.uniza.fri.wof.prikazy;
 import sk.uniza.fri.wof.hra.Hrac;
 import sk.uniza.fri.wof.hra.PredmetNieJeMoznePolozitException;
 import sk.uniza.fri.wof.hra.PredmetNieJeVInventariException;
+import sk.uniza.fri.wof.hra.PredmetNieJeVMiestnostiException;
 import sk.uniza.fri.wof.svet.Miestnost;
 import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.npc.NpcOslovitelne;
@@ -104,8 +105,10 @@ public class VykonavaniePrikazov {
     }
 
     private void pouziPredmet(Prikaz prikaz, Hrac hrac) {
-        if (!hrac.pouziPredmet(prikaz.getParameter())) {
-            System.out.println("Taky predmet nemas");
+        try {
+            hrac.pouziPredmet(prikaz.getParameter());
+        } catch (PredmetNieJeVInventariException e) {
+            System.out.format("Predmet %s nemas%n", prikaz.getParameter());
         }
     }
 
@@ -121,9 +124,10 @@ public class VykonavaniePrikazov {
     }
 
     private void zoberPredmet(Prikaz prikaz, Hrac hrac) {
-        if (hrac.zoberPredmet(prikaz.getParameter())) {
+        try {
+            hrac.zoberPredmet(prikaz.getParameter());
             System.out.format("Zdvihol si predmet %s%n", prikaz.getParameter());
-        } else {
+        } catch (PredmetNieJeVMiestnostiException e) {
             System.out.println("Taky predmet v miestnosti nevidis");
         }
     }

@@ -76,27 +76,24 @@ public class Hrac {
         this.aktualnaMiestnost.polozPredmet(predmet);
     }
 
-    public boolean zoberPredmet(String nazov) {
+    public void zoberPredmet(String nazov) throws PredmetNieJeVMiestnostiException {
         IPredmet predmet = this.aktualnaMiestnost.zoberPredmet(nazov);
 
         if (predmet == null) {
-            return false;
+            throw new PredmetNieJeVMiestnostiException("Predmet sa nenasiel");
         }
 
         this.inventar.put(nazov, predmet);
-        return true;
     }
 
-    public boolean pouziPredmet(String nazov) {
+    public void pouziPredmet(String nazov) throws PredmetNieJeVInventariException {
         IPredmet predmet = this.inventar.get(nazov);
 
         if (predmet == null) {
-            return false;
+            throw new PredmetNieJeVInventariException("Predmet nemas v inventari");
         }
 
         predmet.pouziSa();
-
-        return true;
     }
 
     public void prijmiPredmet(IPredmet predmet) {
