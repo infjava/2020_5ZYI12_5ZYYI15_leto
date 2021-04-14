@@ -5,7 +5,7 @@ import sk.uniza.fri.wof.svet.Miestnost;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.predmety.Predmet;
 
-public class QuestKniha implements IQuest {
+public class QuestKniha implements IQuest, IQuestReakciaNaChodenie, IQuestReakciaNaNpc {
     private boolean polozenaKniha;
     private boolean hotovo;
 
@@ -32,11 +32,6 @@ public class QuestKniha implements IQuest {
     @Override
     public boolean getHotovo() {
         return this.hotovo;
-    }
-
-    @Override
-    public void priradenyHracovi() {
-
     }
 
     @Override

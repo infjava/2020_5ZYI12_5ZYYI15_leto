@@ -1,6 +1,9 @@
 package sk.uniza.fri.wof.hra;
 
 import sk.uniza.fri.wof.hra.questy.IQuest;
+import sk.uniza.fri.wof.hra.questy.IQuestReakciaNaChodenie;
+import sk.uniza.fri.wof.hra.questy.IQuestReakciaNaNpc;
+import sk.uniza.fri.wof.hra.questy.IQuestReakciaNaZmenuStavu;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
@@ -31,7 +34,9 @@ public class Hrac {
             this.aktualnaMiestnost = novaMiestnost;
 
             for (IQuest quest : this.questy) {
-                quest.hracVosielDoMiestnosti(novaMiestnost);
+                if (quest instanceof IQuestReakciaNaChodenie) {
+                    ((IQuestReakciaNaChodenie)quest).hracVosielDoMiestnosti(novaMiestnost);
+                }
             }
 
             this.zistiHotoveQuesty();
@@ -101,7 +106,9 @@ public class Hrac {
 
     public void prijmiQuest(IQuest quest) {
         this.questy.add(quest);
-        quest.priradenyHracovi();
+        if (quest instanceof IQuestReakciaNaZmenuStavu) {
+            ((IQuestReakciaNaZmenuStavu)quest).priradenyHracovi();
+        }
     }
 
     public void zobrazQuestbook() {
@@ -112,7 +119,9 @@ public class Hrac {
 
     public void oslovilNpc(NpcSQuestami npc) {
         for (IQuest quest : this.questy) {
-            quest.hracOslovilNpc(this, npc);
+            if (quest instanceof IQuestReakciaNaNpc) {
+                ((IQuestReakciaNaNpc)quest).hracOslovilNpc(this, npc);
+            }
         }
 
         this.zistiHotoveQuesty();
