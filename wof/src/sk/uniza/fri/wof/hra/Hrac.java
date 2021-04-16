@@ -83,11 +83,6 @@ public class Hrac {
 
     public void zoberPredmet(String nazov) throws PredmetNieJeVMiestnostiException {
         IPredmet predmet = this.aktualnaMiestnost.zoberPredmet(nazov);
-
-        if (predmet == null) {
-            throw new PredmetNieJeVMiestnostiException("Predmet sa nenasiel");
-        }
-
         this.inventar.put(nazov, predmet);
     }
 

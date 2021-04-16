@@ -6,6 +6,7 @@ import sk.uniza.fri.wof.hra.PredmetNieJeMoznePolozitException;
 import sk.uniza.fri.wof.hra.PredmetNieJeVInventariException;
 import sk.uniza.fri.wof.hra.PredmetNieJeVMiestnostiException;
 import sk.uniza.fri.wof.svet.Miestnost;
+import sk.uniza.fri.wof.svet.NpcNenajdeneException;
 import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.npc.NpcOslovitelne;
 import sk.uniza.fri.wof.svet.npc.Obchodnik;
@@ -96,11 +97,15 @@ public class VykonavaniePrikazov {
 
     private void nakupujOdNpc(Prikaz prikaz, Hrac hrac) {
         Miestnost miestnost = hrac.getAktualnaMiestnost();
-        Npc npc = miestnost.getNpc(prikaz.getParameter());
-        if (npc instanceof Obchodnik) {
-            Obchodnik obchodnik = (Obchodnik)npc;
-            obchodnik.nakupuj(hrac);
-        } else {
+        try {
+            Npc npc = miestnost.getNpc(prikaz.getParameter());
+            if (npc instanceof Obchodnik) {
+                Obchodnik obchodnik = (Obchodnik)npc;
+                obchodnik.nakupuj(hrac);
+            } else {
+                System.out.printf("NPC %s nie je obchodnik!%n", prikaz.getParameter());
+            }
+        } catch (NpcNenajdeneException e) {
             System.out.printf("NPC %s sa v miestnosti nenachadza!%n", prikaz.getParameter());
         }
     }
@@ -135,11 +140,15 @@ public class VykonavaniePrikazov {
 
     private void oslovNpc(Prikaz prikaz, Hrac hrac) {
         Miestnost miestnost = hrac.getAktualnaMiestnost();
-        Npc npc = miestnost.getNpc(prikaz.getParameter());
-        if (npc instanceof NpcOslovitelne) {
-            NpcOslovitelne npcOslovitelne = (NpcOslovitelne)npc;
-            npcOslovitelne.oslov(hrac);
-        } else {
+        try {
+            Npc npc = miestnost.getNpc(prikaz.getParameter());
+            if (npc instanceof NpcOslovitelne) {
+                NpcOslovitelne npcOslovitelne = (NpcOslovitelne)npc;
+                npcOslovitelne.oslov(hrac);
+            } else {
+                System.out.printf("NPC %s sa s tebou nechce rozpravat!%n", prikaz.getParameter());
+            }
+        } catch (NpcNenajdeneException e) {
             System.out.printf("NPC %s sa v miestnosti nenachadza!%n", prikaz.getParameter());
         }
     }

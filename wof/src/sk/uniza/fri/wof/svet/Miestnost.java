@@ -1,5 +1,6 @@
 package sk.uniza.fri.wof.svet;
 
+import sk.uniza.fri.wof.hra.PredmetNieJeVMiestnostiException;
 import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 
@@ -75,15 +76,27 @@ public class Miestnost {
         this.npccka.put(npc.getNazov(), npc);
     }
 
-    public Npc getNpc(String nazov) {
-        return this.npccka.get(nazov);
+    public Npc getNpc(String nazov) throws NpcNenajdeneException {
+        Npc npc = this.npccka.get(nazov);
+
+        if (npc == null) {
+            throw new NpcNenajdeneException("Npc sme v miestnosti nenasli");
+        }
+
+        return npc;
     }
 
     public void polozPredmet(IPredmet predmet) {
         this.predmety.put(predmet.getNazov(), predmet);
     }
 
-    public IPredmet zoberPredmet(String nazov) {
-        return this.predmety.remove(nazov);
+    public IPredmet zoberPredmet(String nazov) throws PredmetNieJeVMiestnostiException {
+        IPredmet predmet = this.predmety.remove(nazov);
+
+        if (predmet == null) {
+            throw new PredmetNieJeVMiestnostiException("Predmet sa nenasiel");
+        }
+
+        return predmet;
     }
 }
