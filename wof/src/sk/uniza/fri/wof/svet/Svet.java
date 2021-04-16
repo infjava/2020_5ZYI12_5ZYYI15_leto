@@ -7,6 +7,7 @@ import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;
 import sk.uniza.fri.wof.svet.npc.Obchodnik;
 import sk.uniza.fri.wof.svet.npc.ReplikaHraca;
+import sk.uniza.fri.wof.svet.predmety.Granat;
 import sk.uniza.fri.wof.svet.predmety.Navleky;
 import sk.uniza.fri.wof.svet.predmety.Predmet;
 
@@ -60,6 +61,8 @@ public class Svet {
                 new ReplikaHraca("Ako sa mate?", aniSaNepytaj),
                 new ReplikaHraca("Dnes je ale krasne pocasie", vedPrsi)
         );
+
+        vchod.polozPredmet(new Granat());
 
         vchod.postavNpc(new NpcSRozhovorom("upratovacka", uvodUpratovacky));
 

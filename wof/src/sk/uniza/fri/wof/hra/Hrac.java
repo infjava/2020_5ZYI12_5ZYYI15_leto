@@ -4,6 +4,7 @@ import sk.uniza.fri.wof.hra.questy.IQuestReakciaNaChodenie;
 import sk.uniza.fri.wof.hra.questy.IQuestReakciaNaNpc;
 import sk.uniza.fri.wof.hra.questy.IQuestReakciaNaZmenuStavu;
 import sk.uniza.fri.wof.hra.questy.Quest;
+import sk.uniza.fri.wof.prikazy.HraKonciException;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
@@ -86,7 +87,7 @@ public class Hrac {
         this.inventar.put(nazov, predmet);
     }
 
-    public void pouziPredmet(String nazov) throws PredmetNieJeVInventariException {
+    public void pouziPredmet(String nazov) throws PredmetNieJeVInventariException, HraKonciException {
         IPredmet predmet = this.getPredmet(nazov);
 
         predmet.pouziSa();

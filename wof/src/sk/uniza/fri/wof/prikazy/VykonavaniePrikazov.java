@@ -108,7 +108,7 @@ public class VykonavaniePrikazov {
         }
     }
 
-    private void pouziPredmet(Prikaz prikaz, Hrac hrac) {
+    private void pouziPredmet(Prikaz prikaz, Hrac hrac) throws HraKonciException {
         try {
             hrac.pouziPredmet(prikaz.getParameter());
         } catch (PredmetNieJeVInventariException e) {
