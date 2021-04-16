@@ -57,11 +57,7 @@ public class Hrac {
     }
 
     public void polozPredmet(String nazov) throws PredmetNieJeVInventariException, PredmetNieJeMoznePolozitException {
-        IPredmet predmet = this.inventar.get(nazov);
-
-        if (predmet == null) {
-            throw new PredmetNieJeVInventariException("Predmet sa nenasiel");
-        }
+        IPredmet predmet = this.getPredmet(nazov);
 
         if (predmet instanceof IKontrolaPolozenia) {
             IKontrolaPolozenia kontrola = (IKontrolaPolozenia)predmet;
@@ -75,6 +71,16 @@ public class Hrac {
         this.aktualnaMiestnost.polozPredmet(predmet);
     }
 
+    private IPredmet getPredmet(String nazov) throws PredmetNieJeVInventariException {
+        IPredmet predmet = this.inventar.get(nazov);
+
+        if (predmet == null) {
+            throw new PredmetNieJeVInventariException("Predmet sa nenasiel");
+        }
+
+        return predmet;
+    }
+
     public void zoberPredmet(String nazov) throws PredmetNieJeVMiestnostiException {
         IPredmet predmet = this.aktualnaMiestnost.zoberPredmet(nazov);
 
@@ -86,11 +92,7 @@ public class Hrac {
     }
 
     public void pouziPredmet(String nazov) throws PredmetNieJeVInventariException {
-        IPredmet predmet = this.inventar.get(nazov);
-
-        if (predmet == null) {
-            throw new PredmetNieJeVInventariException("Predmet nemas v inventari");
-        }
+        IPredmet predmet = this.getPredmet(nazov);
 
         predmet.pouziSa();
     }
