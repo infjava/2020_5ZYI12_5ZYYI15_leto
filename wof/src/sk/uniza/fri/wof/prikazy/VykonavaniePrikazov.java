@@ -49,12 +49,11 @@ public class VykonavaniePrikazov {
      *
      * @param prikaz prikaz, ktory ma byt vykonany.
      * @param hrac hrac, ktory ma vykonat prikaz
-     * @return true ak prikaz ukonci hru, inak vrati false.
      */
-    public boolean vykonajPrikaz(Prikaz prikaz, Hrac hrac) {
+    public void vykonajPrikaz(Prikaz prikaz, Hrac hrac) throws HraKonciException {
         if (prikaz.jeNeznamy()) {
             System.out.println("Nerozumiem, co mas na mysli...");
-            return false;
+            return;
         }
 
         String nazovPrikazu = prikaz.getNazov();
@@ -62,32 +61,31 @@ public class VykonavaniePrikazov {
         switch (nazovPrikazu) {
             case "pomoc":
                 this.vypisNapovedu();
-                return false;
+                break;
             case "chod":
                 this.chodDoMiestnosti(prikaz, hrac);
-                return false;
+                break;
             case "ukonci":
-                return this.ukonciHru(prikaz);
+                this.ukonciHru(prikaz);
+                break;
             case "oslov":
                 this.oslovNpc(prikaz, hrac);
-                return false;
+                break;
             case "zober":
                 this.zoberPredmet(prikaz, hrac);
-                return false;
+                break;
             case "poloz":
                 this.polozPredmet(prikaz, hrac);
-                return false;
+                break;
             case "pouzi":
                 this.pouziPredmet(prikaz, hrac);
-                return false;
+                break;
             case "nakupuj":
                 this.nakupujOdNpc(prikaz, hrac);
-                return false;
+                break;
             case "questbook":
                 this.zobrazQuestbook(hrac);
-                return false;
-            default:
-                return false;
+                break;
         }
     }
 
@@ -193,15 +191,13 @@ public class VykonavaniePrikazov {
      * Skotroluje cely prikaz a zisti, ci je naozaj koniec hry.
      * sk.uniza.fri.wof.prikazy.Prikaz ukoncenia nema parameter.
      *
-     * @return true, ak prikaz konci hru, inak false.
      * @param prikaz prikaz, ktory sa aktualne vykonava
      */
-    private boolean ukonciHru(Prikaz prikaz) {
+    private void ukonciHru(Prikaz prikaz) throws HraKonciException {
         if (prikaz.maParameter()) {
             System.out.println("Ukonci, co?");
-            return false;
         } else {
-            return true;
+            throw new HraKonciException("Hra bola ukoncena prikazom ukonci");
         }
     }
 }

@@ -1,5 +1,6 @@
 package sk.uniza.fri.wof.hra;
 
+import sk.uniza.fri.wof.prikazy.HraKonciException;
 import sk.uniza.fri.wof.prikazy.Parser;
 import sk.uniza.fri.wof.prikazy.Prikaz;
 import sk.uniza.fri.wof.svet.Svet;
@@ -50,15 +51,16 @@ public class Hra  {
         // Vstupny bod hlavneho cyklu.
         // Opakovane nacitava prikazy hraca
         // vykonava ich kym hrac nezada prikaz na ukoncenie hry.
-                
-        boolean jeKoniec;
-        
-        do {
-            Prikaz prikaz = this.parser.nacitajPrikaz();
-            jeKoniec = this.vykonavaniePrikazov.vykonajPrikaz(prikaz, this.hrac);
-        } while (!jeKoniec);
-        
-        System.out.println("Maj sa fajn!");
+
+        try {
+            //noinspection InfiniteLoopStatement
+            for (;;) {
+                Prikaz prikaz = this.parser.nacitajPrikaz();
+                this.vykonavaniePrikazov.vykonajPrikaz(prikaz, this.hrac);
+            }
+        } catch (HraKonciException e) {
+            System.out.println("Maj sa fajn!");
+        }
     }
 
     /**
