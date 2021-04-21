@@ -10,10 +10,11 @@ import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Hrac {
+public class Hrac implements Serializable {
     private Miestnost aktualnaMiestnost;
     private final HashMap<String, IPredmet> inventar;
     private final ArrayList<Quest> questy;
@@ -126,5 +127,13 @@ public class Hrac {
 
     public void odstranPredmet(String nazov) {
         this.inventar.remove(nazov);
+    }
+
+    public void nahradHodnotyZUlozenych(Hrac hracNacitany) {
+        this.aktualnaMiestnost  = hracNacitany.aktualnaMiestnost;
+        this.inventar.clear();
+        this.inventar.putAll(hracNacitany.inventar);
+        this.questy.clear();
+        this.questy.addAll(hracNacitany.questy);
     }
 }

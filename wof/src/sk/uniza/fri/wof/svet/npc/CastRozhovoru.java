@@ -1,8 +1,9 @@
 package sk.uniza.fri.wof.svet.npc;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class CastRozhovoru {
+public class CastRozhovoru implements Serializable {
     private final String replikaNpc;
     private final ReplikaHraca[] replikyHraca;
 

@@ -4,6 +4,7 @@ import sk.uniza.fri.wof.hra.PredmetNieJeVMiestnostiException;
 import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeMap;
@@ -20,7 +21,7 @@ import java.util.TreeMap;
  * @author  lokalizacia: Lubomir Sadlon, Jan Janech
  * @version 2012.02.21
  */
-public class Miestnost {
+public class Miestnost implements Serializable {
     private final String popisMiestnosti;
     private final TreeMap<String, Miestnost> vychody;
     private final HashMap<String, Npc> npccka;

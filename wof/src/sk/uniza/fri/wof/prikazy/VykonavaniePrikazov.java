@@ -11,7 +11,13 @@ import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.npc.NpcOslovitelne;
 import sk.uniza.fri.wof.svet.npc.Obchodnik;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Trieda NazvyPrikazov udrzuje zoznam nazvov platnych prikazov hry. 
@@ -105,21 +111,24 @@ public class VykonavaniePrikazov {
             return;
         }
 
-        try (FileInputStream vystup = new FileInputStream(suborPozicie)) {
-
-        } catch (IOException e) {
+        try (ObjectInputStream vystup = new ObjectInputStream(new FileInputStream(suborPozicie))) {
+            Hrac hracNacitany = (Hrac)vystup.readObject();
+            hrac.nahradHodnotyZUlozenych(hracNacitany);
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println("Nepodarilo sa nacitat poziciu");
+            e.printStackTrace();
         }
     }
 
     private void ulozPoziciu(Prikaz prikaz, Hrac hrac) {
         File suborPozicie = new File(prikaz.getParameter() + ".wofsave");
-        try (FileOutputStream vystup = new FileOutputStream(suborPozicie)) {
-
+        try (ObjectOutputStream vystup = new ObjectOutputStream(new FileOutputStream(suborPozicie))) {
+            vystup.writeObject(hrac);
         } catch (FileNotFoundException e) {
             System.out.println("Nepodarilo sa ulozit poziciu, asi zly nazov saveu");
         } catch (IOException e) {
             System.out.println("Nepodarilo sa ulozit poziciu");
+            e.printStackTrace();
         }
     }
 

@@ -2,7 +2,9 @@ package sk.uniza.fri.wof.svet.predmety;
 
 import sk.uniza.fri.wof.prikazy.HraKonciException;
 
-public interface IPredmet {
+import java.io.Serializable;
+
+public interface IPredmet extends Serializable {
     String getNazov();
 
     void pouziSa() throws HraKonciException;
