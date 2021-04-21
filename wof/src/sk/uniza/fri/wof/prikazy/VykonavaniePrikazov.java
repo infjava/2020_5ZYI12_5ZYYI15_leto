@@ -11,6 +11,8 @@ import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.npc.NpcOslovitelne;
 import sk.uniza.fri.wof.svet.npc.Obchodnik;
 
+import java.io.*;
+
 /**
  * Trieda NazvyPrikazov udrzuje zoznam nazvov platnych prikazov hry. 
  * Za ulohu ma rozpoznavat platne prikazy.
@@ -25,7 +27,7 @@ public class VykonavaniePrikazov {
     // konstantne pole nazvov prikazov
     private static final String[] PLATNE_PRIKAZY = {
         "chod", "ukonci", "pomoc", "oslov", "poloz", "zober", "pouzi",
-        "nakupuj", "questbook"
+        "nakupuj", "questbook", "save", "load"
     };
 
     /**
@@ -86,6 +88,38 @@ public class VykonavaniePrikazov {
             case "questbook":
                 this.zobrazQuestbook(hrac);
                 break;
+            case "save":
+                this.ulozPoziciu(prikaz, hrac);
+                break;
+            case "load":
+                this.nacitajPoziciu(prikaz, hrac);
+                break;
+        }
+    }
+
+    private void nacitajPoziciu(Prikaz prikaz, Hrac hrac) {
+        File suborPozicie = new File(prikaz.getParameter() + ".wofsave");
+
+        if (!suborPozicie.exists()) {
+            System.out.println("Taky save nemas");
+            return;
+        }
+
+        try (FileInputStream vystup = new FileInputStream(suborPozicie)) {
+
+        } catch (IOException e) {
+            System.out.println("Nepodarilo sa nacitat poziciu");
+        }
+    }
+
+    private void ulozPoziciu(Prikaz prikaz, Hrac hrac) {
+        File suborPozicie = new File(prikaz.getParameter() + ".wofsave");
+        try (FileOutputStream vystup = new FileOutputStream(suborPozicie)) {
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Nepodarilo sa ulozit poziciu, asi zly nazov saveu");
+        } catch (IOException e) {
+            System.out.println("Nepodarilo sa ulozit poziciu");
         }
     }
 
