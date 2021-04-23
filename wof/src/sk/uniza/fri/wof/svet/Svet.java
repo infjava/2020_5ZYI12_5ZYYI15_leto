@@ -8,6 +8,7 @@ import sk.uniza.fri.wof.svet.npc.NpcSRozhovorom;
 import sk.uniza.fri.wof.svet.npc.Obchodnik;
 import sk.uniza.fri.wof.svet.npc.ReplikaHraca;
 import sk.uniza.fri.wof.svet.predmety.Granat;
+import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.predmety.Navleky;
 import sk.uniza.fri.wof.svet.predmety.Predmet;
 
@@ -67,13 +68,13 @@ public class Svet {
                 new ReplikaHraca("Dnes je ale krasne pocasie", vedPrsi)
         );
 
-        vchod.polozPredmet(new Granat());
+        vchod.polozPredmet(this.newPredmet("granat"));
 
         vchod.postavNpc(new NpcSRozhovorom("upratovacka", uvodUpratovacky));
 
-        vchod.postavNpc(new Obchodnik("bufetarka", new Navleky()));
+        vchod.postavNpc(new Obchodnik("bufetarka", this.newPredmet("navleky")));
 
-        vchod.polozPredmet(new Predmet("pocitac"));
+        vchod.polozPredmet(this.newPredmet("pocitac"));
 
         vchod.postavNpc(new NpcSQuestami("rektor", new QuestUtekajDoLabaku()));
 
@@ -96,6 +97,17 @@ public class Svet {
         narnia.nastavVychod("skrina", skrina);
 
         this.startovaciaMiestnost = vchod;
+    }
+
+    public IPredmet newPredmet(String nazov) {
+        switch (nazov) {
+            case "navleky":
+                return new Navleky();
+            case "granat":
+                return new Granat();
+            default:
+                return new Predmet(nazov);
+        }
     }
 
     private Miestnost newMiestnost(String nazov, String popis) {

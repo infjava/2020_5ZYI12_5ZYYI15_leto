@@ -129,6 +129,7 @@ public class VykonavaniePrikazov {
             hrac.getAktualnaMiestnost().vypisInfoOMiestnosti();
         } catch (IOException e) {
             System.out.println("Nepodarilo sa nacitat poziciu");
+            e.printStackTrace();
         }
     }
 
@@ -142,6 +143,7 @@ public class VykonavaniePrikazov {
             System.out.println("Nepodarilo sa ulozit poziciu, asi zly nazov saveu");
         } catch (IOException e) {
             System.out.println("Nepodarilo sa ulozit poziciu");
+            e.printStackTrace();
         }
     }
 
