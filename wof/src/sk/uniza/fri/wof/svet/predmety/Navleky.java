@@ -1,5 +1,9 @@
 package sk.uniza.fri.wof.svet.predmety;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+
 public class Navleky implements IPredmet, IKontrolaPolozenia {
     private boolean suObute;
 
@@ -21,6 +25,16 @@ public class Navleky implements IPredmet, IKontrolaPolozenia {
             System.out.println("Obul si si navleky");
             this.suObute = true;
         }
+    }
+
+    @Override
+    public void ulozPoziciu(DataOutputStream vystup) throws IOException {
+        vystup.writeBoolean(this.suObute);
+    }
+
+    @Override
+    public void nacitajPoziciu(DataInputStream vstup, int saveVerzia) throws IOException {
+        this.suObute = vstup.readBoolean();
     }
 
     @Override

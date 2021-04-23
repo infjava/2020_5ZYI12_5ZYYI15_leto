@@ -139,6 +139,7 @@ public class Hrac {
         vystup.writeInt(this.inventar.size());
         for (IPredmet predmet : this.inventar.values()) {
             vystup.writeUTF(predmet.getNazov());
+            predmet.ulozPoziciu(vystup);
         }
     }
 
@@ -152,6 +153,9 @@ public class Hrac {
                 String nazovPredmetu = vstup.readUTF();
                 IPredmet predmet = this.svet.newPredmet(nazovPredmetu);
                 this.inventar.put(predmet.getNazov(), predmet);
+                if (saveVerzia >= 2) {
+                    predmet.nacitajPoziciu(vstup, saveVerzia);
+                }
             }
         }
     }

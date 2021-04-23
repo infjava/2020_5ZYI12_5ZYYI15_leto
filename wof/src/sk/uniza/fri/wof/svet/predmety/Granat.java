@@ -2,6 +2,8 @@ package sk.uniza.fri.wof.svet.predmety;
 
 import sk.uniza.fri.wof.prikazy.HraKonciException;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.util.Random;
 
 public class Granat implements IPredmet {
@@ -23,5 +25,15 @@ public class Granat implements IPredmet {
             throw new HraKonciException("Vybuchol granat");
         }
         System.out.println("Tento krat si mal stastie, ale s granatom sa nehraj.");
+    }
+
+    @Override
+    public void ulozPoziciu(DataOutputStream vystup) {
+
+    }
+
+    @Override
+    public void nacitajPoziciu(DataInputStream vstup, int saveVerzia) {
+
     }
 }

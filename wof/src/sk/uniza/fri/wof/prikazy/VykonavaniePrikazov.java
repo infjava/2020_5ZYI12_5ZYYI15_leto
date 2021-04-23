@@ -37,7 +37,7 @@ public class VykonavaniePrikazov {
     };
 
     private static final int SAVE_MAGIC_NUMBER = 0x72951413;
-    private static final int SAVE_VERZIA = 1;
+    private static final int SAVE_VERZIA = 2;
 
     /**
      * Kontroluje, ci nazov v parametri je platny prikaz.
