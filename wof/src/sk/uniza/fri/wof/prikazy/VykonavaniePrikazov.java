@@ -37,7 +37,7 @@ public class VykonavaniePrikazov {
     };
 
     private static final int SAVE_MAGIC_NUMBER = 0x72951413;
-    private static final int SAVE_VERZIA = 0;
+    private static final int SAVE_VERZIA = 1;
 
     /**
      * Kontroluje, ci nazov v parametri je platny prikaz.
@@ -125,7 +125,7 @@ public class VykonavaniePrikazov {
                 System.out.println("Tento save bol vyprodukovany v novsej verzii hry");
                 return;
             }
-            hrac.nacitajPoziciu(vstup);
+            hrac.nacitajPoziciu(vstup, saveVerzia);
             hrac.getAktualnaMiestnost().vypisInfoOMiestnosti();
         } catch (IOException e) {
             System.out.println("Nepodarilo sa nacitat poziciu");
