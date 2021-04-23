@@ -126,6 +126,7 @@ public class VykonavaniePrikazov {
                 return;
             }
             hrac.nacitajPoziciu(vstup);
+            hrac.getAktualnaMiestnost().vypisInfoOMiestnosti();
         } catch (IOException e) {
             System.out.println("Nepodarilo sa nacitat poziciu");
         }
