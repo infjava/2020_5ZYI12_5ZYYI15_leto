@@ -68,8 +68,8 @@ public class Miestnost {
     private void vypisZoznam(String nadpis, Set<String> polozky) {
         if (!polozky.isEmpty()) {
             System.out.format("%s: ", nadpis);
-            for (String nazov : polozky) {
-                System.out.format("%s ", nazov);
+            for (String polozka : polozky) {
+                System.out.format("%s ", polozka);
             }
             System.out.println();
         }
