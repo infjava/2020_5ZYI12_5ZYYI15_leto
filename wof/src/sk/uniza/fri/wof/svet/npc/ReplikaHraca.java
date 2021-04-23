@@ -1,8 +1,6 @@
 package sk.uniza.fri.wof.svet.npc;
 
-import java.io.Serializable;
-
-public class ReplikaHraca implements Serializable {
+public class ReplikaHraca {
     private final String text;
     private final CastRozhovoru cielovaCast;
 

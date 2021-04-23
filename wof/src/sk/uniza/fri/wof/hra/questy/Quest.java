@@ -1,8 +1,6 @@
 package sk.uniza.fri.wof.hra.questy;
 
-import java.io.Serializable;
-
-public abstract class Quest implements Serializable {
+public abstract class Quest {
     private boolean hotovo;
 
     public Quest() {
