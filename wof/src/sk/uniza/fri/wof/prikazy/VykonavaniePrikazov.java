@@ -11,6 +11,8 @@ import sk.uniza.fri.wof.svet.npc.Npc;
 import sk.uniza.fri.wof.svet.npc.NpcOslovitelne;
 import sk.uniza.fri.wof.svet.npc.Obchodnik;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -33,6 +35,9 @@ public class VykonavaniePrikazov {
         "chod", "ukonci", "pomoc", "oslov", "poloz", "zober", "pouzi",
         "nakupuj", "questbook", "save", "load"
     };
+
+    private static final int SAVE_MAGIC_NUMBER = 0x72951413;
+    private static final int SAVE_VERZIA = 0;
 
     /**
      * Kontroluje, ci nazov v parametri je platny prikaz.
@@ -109,8 +114,18 @@ public class VykonavaniePrikazov {
             return;
         }
 
-        try (FileInputStream vystup = new FileInputStream(suborPozicie)) {
-
+        try (DataInputStream vstup = new DataInputStream(new FileInputStream(suborPozicie))) {
+            int magicNumber = vstup.readInt();
+            if (magicNumber != VykonavaniePrikazov.SAVE_MAGIC_NUMBER) {
+                System.out.println("Tento subor nie je platnou poziciou hry WOF");
+                return;
+            }
+            int saveVerzia = vstup.readInt();
+            if (saveVerzia > VykonavaniePrikazov.SAVE_VERZIA) {
+                System.out.println("Tento save bol vyprodukovany v novsej verzii hry");
+                return;
+            }
+            hrac.nacitajPoziciu(vstup);
         } catch (IOException e) {
             System.out.println("Nepodarilo sa nacitat poziciu");
         }
@@ -118,8 +133,10 @@ public class VykonavaniePrikazov {
 
     private void ulozPoziciu(Prikaz prikaz, Hrac hrac) {
         File suborPozicie = new File(prikaz.getParameter() + ".wofsave");
-        try (FileOutputStream vystup = new FileOutputStream(suborPozicie)) {
-
+        try (DataOutputStream vystup = new DataOutputStream(new FileOutputStream(suborPozicie))) {
+            vystup.writeInt(VykonavaniePrikazov.SAVE_MAGIC_NUMBER);
+            vystup.writeInt(VykonavaniePrikazov.SAVE_VERZIA);
+            hrac.ulozPoziciu(vystup);
         } catch (FileNotFoundException e) {
             System.out.println("Nepodarilo sa ulozit poziciu, asi zly nazov saveu");
         } catch (IOException e) {

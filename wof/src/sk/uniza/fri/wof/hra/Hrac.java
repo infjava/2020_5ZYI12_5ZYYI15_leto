@@ -10,6 +10,8 @@ import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
 import sk.uniza.fri.wof.svet.Miestnost;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -126,5 +128,13 @@ public class Hrac {
 
     public void odstranPredmet(String nazov) {
         this.inventar.remove(nazov);
+    }
+
+    public void ulozPoziciu(DataOutputStream vystup) {
+
+    }
+
+    public void nacitajPoziciu(DataInputStream vstup) {
+
     }
 }
