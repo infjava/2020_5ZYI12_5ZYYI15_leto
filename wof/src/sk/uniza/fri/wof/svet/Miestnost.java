@@ -21,6 +21,7 @@ import java.util.TreeMap;
  * @version 2012.02.21
  */
 public class Miestnost {
+    private final String nazov;
     private final String popisMiestnosti;
     private final TreeMap<String, Miestnost> vychody;
     private final HashMap<String, Npc> npccka;
@@ -33,7 +34,8 @@ public class Miestnost {
      * 
      * @param popis text popisu miestnosti.
      */
-    public Miestnost(String popis) {
+    public Miestnost(String nazov, String popis) {
+        this.nazov = nazov;
         this.popisMiestnosti = popis;
         this.vychody = new TreeMap<>();
         this.npccka = new HashMap<>();
@@ -51,8 +53,13 @@ public class Miestnost {
         return this.popisMiestnosti;
     }
 
+    public String getNazov() {
+        return this.nazov;
+    }
+
     public void vypisInfoOMiestnosti() {
-        System.out.println("Teraz si v miestnosti " + this.getPopis());
+        System.out.println("Teraz si v miestnosti " + this.getNazov());
+        System.out.println(this.popisMiestnosti);
         this.vypisZoznam("Vychody", this.vychody.keySet());
         this.vypisZoznam("NPC", this.npccka.keySet());
         this.vypisZoznam("Predmety", this.predmety.keySet());

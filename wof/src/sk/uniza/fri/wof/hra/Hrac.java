@@ -5,6 +5,7 @@ import sk.uniza.fri.wof.hra.questy.IQuestReakciaNaNpc;
 import sk.uniza.fri.wof.hra.questy.IQuestReakciaNaZmenuStavu;
 import sk.uniza.fri.wof.hra.questy.Quest;
 import sk.uniza.fri.wof.prikazy.HraKonciException;
+import sk.uniza.fri.wof.svet.Svet;
 import sk.uniza.fri.wof.svet.npc.NpcSQuestami;
 import sk.uniza.fri.wof.svet.predmety.IKontrolaPolozenia;
 import sk.uniza.fri.wof.svet.predmety.IPredmet;
@@ -12,16 +13,19 @@ import sk.uniza.fri.wof.svet.Miestnost;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Hrac {
     private Miestnost aktualnaMiestnost;
+    private final Svet svet;
     private final HashMap<String, IPredmet> inventar;
     private final ArrayList<Quest> questy;
 
-    public Hrac(Miestnost pociatocnaMiestnost) {
-        this.aktualnaMiestnost = pociatocnaMiestnost;
+    public Hrac(Svet svet) {
+        this.aktualnaMiestnost = svet.getStartovaciaMiestnost();
+        this.svet = svet;
         this.inventar = new HashMap<>();
         this.questy = new ArrayList<>();
     }
@@ -130,11 +134,12 @@ public class Hrac {
         this.inventar.remove(nazov);
     }
 
-    public void ulozPoziciu(DataOutputStream vystup) {
-
+    public void ulozPoziciu(DataOutputStream vystup) throws IOException {
+        vystup.writeUTF(this.aktualnaMiestnost.getNazov());
     }
 
-    public void nacitajPoziciu(DataInputStream vstup) {
-
+    public void nacitajPoziciu(DataInputStream vstup) throws IOException {
+        String nazovMiestnosti = vstup.readUTF();
+        this.aktualnaMiestnost = this.svet.getMiestnost(nazovMiestnosti);
     }
 }

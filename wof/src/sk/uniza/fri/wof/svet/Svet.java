@@ -11,21 +11,26 @@ import sk.uniza.fri.wof.svet.predmety.Granat;
 import sk.uniza.fri.wof.svet.predmety.Navleky;
 import sk.uniza.fri.wof.svet.predmety.Predmet;
 
+import java.util.HashMap;
+
 public class Svet {
     private final Miestnost startovaciaMiestnost;
+    private final HashMap<String, Miestnost> miestnosti;
 
     public Svet() {
-        Miestnost ra13 = new Miestnost("RA013 - laboratorium plne pocitacov");
-        Miestnost chodbaA = new Miestnost("Chodba A - dlhocizna chodba v budove A");
-        Miestnost jedalen = new Miestnost("Jedalen - hmmm... tu to krasne vonia...");
-        Miestnost chodbaC = new Miestnost("Chodba C - temna chodba v podzemi");
-        Miestnost vchod = new Miestnost("Vchod - pani vratnicka kazdemu mera teplotu");
-        Miestnost ic = new Miestnost("IC - vidis plno mudrych knih");
-        Miestnost ciscoLaboratorium = new Miestnost("Cisco laboratorium - pocuvas a nic nepocujes - huciace switche vsetko prehlusia");
-        Miestnost chodbaB = new Miestnost("Chodba B - tmava chodba so svetlou chill zonou");
-        Miestnost skusobnaMiestnost = new Miestnost("Skusobna miestnost - tu ta caka skuska ohnom - teda prakticka skuska z Informatiky");
-        Miestnost skrina = new Miestnost("Skrina - je tu trochu tesno; ale citis prievan");
-        Miestnost narnia = new Miestnost("Narnia - si sa mal teplejsie obliect; asi zabudli vypnut klimatizaciu");
+        this.miestnosti = new HashMap<String, Miestnost>();
+
+        Miestnost ra13 = this.newMiestnost("RA013", "laboratorium plne pocitacov");
+        Miestnost chodbaA = this.newMiestnost("Chodba A", "dlhocizna chodba v budove A");
+        Miestnost jedalen = this.newMiestnost("Jedalen", "hmmm... tu to krasne vonia...");
+        Miestnost chodbaC = this.newMiestnost("Chodba C", "temna chodba v podzemi");
+        Miestnost vchod = this.newMiestnost("Vchod", "pani vratnicka kazdemu mera teplotu");
+        Miestnost ic = this.newMiestnost("IC", "vidis plno mudrych knih");
+        Miestnost ciscoLaboratorium = this.newMiestnost("Cisco laboratorium", "pocuvas a nic nepocujes - huciace switche vsetko prehlusia");
+        Miestnost chodbaB = this.newMiestnost("Chodba B", "tmava chodba so svetlou chill zonou");
+        Miestnost skusobnaMiestnost = this.newMiestnost("Skusobna miestnost", "tu ta caka skuska ohnom - teda prakticka skuska z Informatiky");
+        Miestnost skrina = this.newMiestnost("Skrina", "je tu trochu tesno; ale citis prievan");
+        Miestnost narnia = this.newMiestnost("Narnia", "si sa mal teplejsie obliect; asi zabudli vypnut klimatizaciu");
 
         ra13.nastavVychod("juh", chodbaA);
 
@@ -93,7 +98,17 @@ public class Svet {
         this.startovaciaMiestnost = vchod;
     }
 
+    private Miestnost newMiestnost(String nazov, String popis) {
+        Miestnost miestnost = new Miestnost(nazov, popis);
+        this.miestnosti.put(nazov, miestnost);
+        return miestnost;
+    }
+
     public Miestnost getStartovaciaMiestnost() {
         return this.startovaciaMiestnost;
+    }
+
+    public Miestnost getMiestnost(String nazov) {
+        return this.miestnosti.get(nazov);
     }
 }

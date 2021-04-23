@@ -36,7 +36,7 @@ public class Hra  {
      */
     public Hra() {
         Svet svet = new Svet();
-        this.hrac = new Hrac(svet.getStartovaciaMiestnost());
+        this.hrac = new Hrac(svet);
         this.vykonavaniePrikazov = new VykonavaniePrikazov();
         this.parser = new Parser(this.vykonavaniePrikazov);
     }

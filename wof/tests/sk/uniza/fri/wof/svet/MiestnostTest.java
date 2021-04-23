@@ -19,11 +19,11 @@ public class MiestnostTest {
 
     @BeforeEach
     public void setUp() {
-        this.nemaVychody = new Miestnost("nema vychody");
-        this.zapad = new Miestnost("zapad");
-        this.vychod = new Miestnost("vychod");
-        this.sever = new Miestnost("sever");
-        this.juh = new Miestnost("juh");
+        this.nemaVychody = new Miestnost("nv", "nema vychody");
+        this.zapad = new Miestnost("z", "zapad");
+        this.vychod = new Miestnost("v", "vychod");
+        this.sever = new Miestnost("s", "sever");
+        this.juh = new Miestnost("j", "juh");
         this.zapad.nastavVychod("sever", this.sever);
         this.zapad.nastavVychod("vychod", this.vychod);
         this.zapad.nastavVychod("juh", this.juh);
