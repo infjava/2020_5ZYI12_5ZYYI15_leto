@@ -24,11 +24,32 @@ Vychod vychod IC
 Vychod juh Chodba B
 Predmet granat
 Predmet pocitac
+NpcSRozhovorom upratovacka
+    - Ako sa mate?
+        Joj, ani sa nepytaj, prave ma vykradli
+        - Utekam chytit zlodeja
+            Joj, to si krasny, velmi dakujem
+        - Tak Vam treba
+            Padaj prec
+    - Dnes je ale krasne pocasie
+        Krasne? Ved prsi. Daj si navleky!
+        - Nemam
+            Tu mas
+        - Uz na to idem
+            Super, a teraz padaj prec
+Obchodnik bufetarka
+    Predmet navleky
+    Predmet bageta
+    Predmet pizza
+NpcSQuestami rektor
+    Quest utekajDoLabaku
 Start
 
 Miestnost IC
 vidis plno mudrych knih
 Vychod zapad Vchod
+NpcSQuestami knihovnicka
+    Quest kniha
 
 Miestnost Cisco laboratorium
 pocuvas a nic nepocujes - huciace switche vsetko prehlusia
