@@ -1,0 +1,55 @@
+Miestnost RA013
+laboratorium plne pocitacov
+Vychod juh Chodba A
+
+Miestnost Chodba A
+dlhocizna chodba v budove A
+Vychod dole Chodba C
+Vychod sever RA013
+Vychod juh Vchod
+
+Miestnost Jedalen
+hmmm... tu to krasne vonia...
+Vychod vychod Chodba C
+
+Miestnost Chodba C
+temna chodba v podzemi
+Vychod zapad Jedalen
+Vychod hore Chodba A
+
+Miestnost Vchod
+pani vratnicka kazdemu mera teplotu
+Vychod sever Chodba A
+Vychod vychod IC
+Vychod juh Chodba B
+Predmet granat
+Predmet pocitac
+Start
+
+Miestnost IC
+vidis plno mudrych knih
+Vychod zapad Vchod
+
+Miestnost Cisco laboratorium
+pocuvas a nic nepocujes - huciace switche vsetko prehlusia
+Vychod dole Chodba B
+
+Miestnost Chodba B
+tmava chodba so svetlou chill zonou
+Vychod hore Cisco laboratorium
+Vychod sever Vchod
+Vychod vychod Skusobna miestnost
+
+Miestnost Skusobna miestnost
+tu ta caka skuska ohnom - teda prakticka skuska z Informatiky
+Vychod zapad Chodba B
+Vychod skrina Skrina
+
+Miestnost Skrina
+je tu trochu tesno; ale citis prievan
+Vychod von Skusobna miestnost
+Vychod narnia Narnia
+
+Miestnost Narnia
+si sa mal teplejsie obliect; asi zabudli vypnut klimatizaciu
+Vychod skrina Skrina
