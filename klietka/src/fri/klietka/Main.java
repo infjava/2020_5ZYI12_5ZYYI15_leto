@@ -6,6 +6,7 @@ import fri.klietka.potrava.KusMasa;
 import fri.klietka.potrava.Syr;
 import fri.klietka.zvierata.Lev;
 import fri.klietka.zvierata.Mys;
+import fri.klietka.zvierata.Slon;
 
 public class Main {
 
@@ -20,5 +21,9 @@ public class Main {
         klietkaNaMys.vloz(new Mys(true));
         klietkaNaMys.vhodPotravu(new Syr());
         klietkaNaMys.vypis();
+
+        Klietka<Slon> klietkaNaSlona = new Klietka<>();
+        klietkaNaSlona.vloz(new Slon());
+        klietkaNaSlona.vypis();
     }
 }
