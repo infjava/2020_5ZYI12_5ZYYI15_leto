@@ -7,7 +7,10 @@ public class KlietkaNaLeva {
         this.lev = null;
     }
 
-    public void vloz(Lev lev) {
+    public void vloz(Lev lev) throws VKlietkeUzNiektoJeException {
+        if (this.lev != null) {
+            throw new VKlietkeUzNiektoJeException("Uz tu mame leva");
+        }
         this.lev = lev;
     }
 
