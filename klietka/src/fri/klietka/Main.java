@@ -7,5 +7,9 @@ public class Main {
         klietkaNaLeva.vloz(new Lev());
         //klietkaNaLeva.vloz(new Lev());
         klietkaNaLeva.vypis();
+
+        KlietkaNaMys klietkaNaMys = new KlietkaNaMys();
+        klietkaNaMys.vloz(new Mys());
+        klietkaNaMys.vypis();
     }
 }
