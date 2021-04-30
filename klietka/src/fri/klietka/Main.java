@@ -11,5 +11,9 @@ public class Main {
         Klietka<Mys> klietkaNaMys = new Klietka<>();
         klietkaNaMys.vloz(new Mys());
         klietkaNaMys.vypis();
+
+        Klietka<Integer> klietkaCisla = new Klietka<>();
+        klietkaCisla.vloz(5);
+        klietkaCisla.vypis();
     }
 }
