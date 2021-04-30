@@ -1,4 +1,4 @@
 package fri.klietka;
 
-public class Lev {
+public class Lev extends Zviera {
 }
