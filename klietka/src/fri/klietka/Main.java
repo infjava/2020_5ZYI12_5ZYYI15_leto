@@ -16,14 +16,17 @@ public class Main {
         klietkaNaLeva.vhodPotravu(new KusMasa());
         //klietkaNaLeva.vloz(new Lev());
         klietkaNaLeva.vypis();
+        klietkaNaLeva.predvedZviera();
 
         Klietka<Mys> klietkaNaMys = new Klietka<>();
         klietkaNaMys.vloz(new Mys(true));
         klietkaNaMys.vhodPotravu(new Syr());
         klietkaNaMys.vypis();
+        klietkaNaMys.predvedZviera();
 
         Klietka<Slon> klietkaNaSlona = new Klietka<>();
         klietkaNaSlona.vloz(new Slon());
         klietkaNaSlona.vypis();
+        klietkaNaSlona.predvedZviera();
     }
 }
