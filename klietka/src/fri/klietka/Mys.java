@@ -1,4 +1,4 @@
 package fri.klietka;
 
-public class Mys {
+public class Mys extends Zviera {
 }
