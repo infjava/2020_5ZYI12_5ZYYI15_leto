@@ -3,6 +3,8 @@ package fri.klietka;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        KlietkaNaLeva klietkaNaLeva = new KlietkaNaLeva();
+        klietkaNaLeva.vloz(new Lev());
+        klietkaNaLeva.vypis();
     }
 }
