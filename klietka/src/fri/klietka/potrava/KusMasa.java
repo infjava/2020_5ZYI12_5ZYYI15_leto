@@ -1,4 +1,6 @@
 package fri.klietka.potrava;
 
-public class KusMasa extends Potrava {
+import fri.klietka.zvierata.Lev;
+
+public class KusMasa extends Potrava<Lev> {
 }

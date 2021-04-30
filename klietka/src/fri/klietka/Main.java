@@ -18,7 +18,7 @@ public class Main {
 
         Klietka<Mys> klietkaNaMys = new Klietka<>();
         klietkaNaMys.vloz(new Mys());
-        klietkaNaLeva.vhodPotravu(new Syr());
+        klietkaNaMys.vhodPotravu(new Syr());
         klietkaNaMys.vypis();
     }
 }

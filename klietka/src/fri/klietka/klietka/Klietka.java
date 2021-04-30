@@ -25,7 +25,7 @@ public class Klietka<E extends Zviera> {
         }
     }
 
-    public void vhodPotravu(Potrava potrava) {
+    public void vhodPotravu(Potrava<E> potrava) {
         System.out.println("Zviera zjedlo potravu");
     }
 }

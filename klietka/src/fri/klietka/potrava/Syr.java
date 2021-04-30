@@ -1,4 +1,6 @@
 package fri.klietka.potrava;
 
-public class Syr extends Potrava {
+import fri.klietka.zvierata.Mys;
+
+public class Syr extends Potrava<Mys> {
 }
