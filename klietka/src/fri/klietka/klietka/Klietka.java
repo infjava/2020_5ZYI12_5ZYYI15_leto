@@ -21,11 +21,11 @@ public class Klietka<E extends Zviera> {
         if (this.zviera == null) {
             System.out.println("Klietka je prazdna");
         } else {
-            System.out.println("V klietke je zviera");
+            System.out.format("V klietke je %s%n", this.zviera.getMeno());
         }
     }
 
     public void vhodPotravu(Potrava<E> potrava) {
-        System.out.println("Zviera zjedlo potravu");
+        System.out.format("%s zjedlo potravu%n", this.zviera.getMeno());
     }
 }
