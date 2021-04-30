@@ -1,5 +1,6 @@
 package fri.klietka.klietka;
 
+import fri.klietka.potrava.Potrava;
 import fri.klietka.zvierata.Zviera;
 
 public class Klietka<E extends Zviera> {
@@ -22,5 +23,9 @@ public class Klietka<E extends Zviera> {
         } else {
             System.out.println("V klietke je zviera");
         }
+    }
+
+    public void vhodPotravu(Potrava potrava) {
+        System.out.println("Zviera zjedlo potravu");
     }
 }
