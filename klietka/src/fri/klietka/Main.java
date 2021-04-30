@@ -1,5 +1,10 @@
 package fri.klietka;
 
+import fri.klietka.klietka.Klietka;
+import fri.klietka.klietka.VKlietkeUzNiektoJeException;
+import fri.klietka.zvierata.Lev;
+import fri.klietka.zvierata.Mys;
+
 public class Main {
 
     public static void main(String[] args) throws VKlietkeUzNiektoJeException {

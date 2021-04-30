@@ -1,4 +1,6 @@
-package fri.klietka;
+package fri.klietka.klietka;
+
+import fri.klietka.zvierata.Zviera;
 
 public class Klietka<E extends Zviera> {
     private E zviera;
