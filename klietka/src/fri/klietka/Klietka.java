@@ -1,13 +1,13 @@
 package fri.klietka;
 
-public class Klietka {
-    private Zviera zviera;
+public class Klietka<E> {
+    private E zviera;
 
     public Klietka() {
         this.zviera = null;
     }
 
-    public void vloz(Zviera zviera) throws VKlietkeUzNiektoJeException {
+    public void vloz(E zviera) throws VKlietkeUzNiektoJeException {
         if (this.zviera != null) {
             throw new VKlietkeUzNiektoJeException("Uz tu mame zviera");
         }
