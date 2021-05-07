@@ -1,19 +1,12 @@
 package fri.prvocisla;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Prvocisla implements Iterable<Integer> {
-    private final ArrayList<Integer> prvocisla;
+    private final int maximum;
 
     public Prvocisla(int maximum) {
-        this.prvocisla = new ArrayList<>();
-
-        for (int cislo = 2; cislo <= maximum; cislo++) {
-            if (this.jePrvocislo(cislo)) {
-                this.prvocisla.add(cislo);
-            }
-        }
+        this.maximum = maximum;
     }
 
     private boolean jePrvocislo(int cislo) {
@@ -28,6 +21,21 @@ public class Prvocisla implements Iterable<Integer> {
 
     @Override
     public Iterator<Integer> iterator() {
-        return this.prvocisla.iterator();
+        return new Iterator<>() {
+            private int cislo = 1;
+
+            @Override
+            public boolean hasNext() {
+                return this.cislo < Prvocisla.this.maximum;
+            }
+
+            @Override
+            public Integer next() {
+                do {
+                    this.cislo++;
+                } while (!Prvocisla.this.jePrvocislo(this.cislo));
+                return this.cislo;
+            }
+        };
     }
 }
