@@ -34,5 +34,21 @@ public class Main {
         klietkaNaMacku.vloz(new Macka());
         klietkaNaMacku.vhodPotravu(new Mys(true));
         klietkaNaMacku.vypis();
+
+//        ArrayList<Integer> cisla = new ArrayList<>();
+//        cisla.add(5);
+//        cisla.add(5);
+//        cisla.add(5);
+//        cisla.add(10);
+//
+//        for (Integer cislo : cisla) {
+//            System.out.println(cislo);
+//        }
+//
+//        Iterator<Integer> prst = cisla.iterator();
+//        while (prst.hasNext()) {
+//            Integer cislo = prst.next();
+//            System.out.println(cislo);
+//        }
     }
 }
