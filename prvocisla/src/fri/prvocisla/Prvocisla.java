@@ -28,19 +28,6 @@ public class Prvocisla implements Iterable<Integer> {
 
     @Override
     public Iterator<Integer> iterator() {
-        return new Iterator<>() {
-            private int index = 0;
-
-            @Override
-            public boolean hasNext() {
-                return this.index < Prvocisla.this.prvocisla.size();
-            }
-
-            @Override
-            public Integer next() {
-                this.index++;
-                return Prvocisla.this.prvocisla.get(this.index - 1);
-            }
-        };
+        return this.prvocisla.iterator();
     }
 }
