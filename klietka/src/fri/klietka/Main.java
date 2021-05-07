@@ -32,8 +32,12 @@ public class Main {
 
         Klietka<Macka> klietkaNaMacku = new Klietka<>();
         klietkaNaMacku.vloz(new Macka());
-        klietkaNaMacku.vhodPotravu(new Mys(true));
+        //klietkaNaMacku.vhodPotravu(new Mys(true));
         klietkaNaMacku.vypis();
+
+        for (Macka macka : klietkaNaMacku) {
+            System.out.println(macka);
+        }
 
 //        ArrayList<Integer> cisla = new ArrayList<>();
 //        cisla.add(5);

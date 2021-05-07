@@ -4,7 +4,9 @@ import fri.klietka.potrava.IPotrava;
 import fri.klietka.zvierata.VycviceneZviera;
 import fri.klietka.zvierata.Zviera;
 
-public class Klietka<E extends Zviera> {
+import java.util.Iterator;
+
+public class Klietka<E extends Zviera> implements Iterable<E> {
     private E zviera;
 
     public Klietka() {
@@ -38,5 +40,10 @@ public class Klietka<E extends Zviera> {
         } else {
             System.out.format("%s nie je vycvicene%n", this.zviera.getMeno());
         }
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new KlietkaIterator<>(this.zviera);
     }
 }
