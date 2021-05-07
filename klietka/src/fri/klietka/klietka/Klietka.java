@@ -7,26 +7,6 @@ import fri.klietka.zvierata.Zviera;
 import java.util.Iterator;
 
 public class Klietka<E extends Zviera> implements Iterable<E> {
-    private class KlietkaIterator implements Iterator<E> {
-        private E zviera;
-
-        KlietkaIterator() {
-            this.zviera = Klietka.this.zviera;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return this.zviera != null;
-        }
-
-        @Override
-        public E next() {
-            E vysledok = this.zviera;
-            this.zviera = null;
-            return vysledok;
-        }
-    }
-
     private E zviera;
 
     public Klietka() {
@@ -64,6 +44,20 @@ public class Klietka<E extends Zviera> implements Iterable<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return new KlietkaIterator();
+        return new Iterator<>() {
+            private E zviera = Klietka.this.zviera;
+
+            @Override
+            public boolean hasNext() {
+                return this.zviera != null;
+            }
+
+            @Override
+            public E next() {
+                E vysledok = this.zviera;
+                this.zviera = null;
+                return vysledok;
+            }
+        };
     }
 }
