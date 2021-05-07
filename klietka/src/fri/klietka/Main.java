@@ -5,6 +5,7 @@ import fri.klietka.klietka.VKlietkeUzNiektoJeException;
 import fri.klietka.potrava.KusMasa;
 import fri.klietka.potrava.Syr;
 import fri.klietka.zvierata.Lev;
+import fri.klietka.zvierata.Macka;
 import fri.klietka.zvierata.Mys;
 import fri.klietka.zvierata.Slon;
 
@@ -28,5 +29,10 @@ public class Main {
         klietkaNaSlona.vloz(new Slon());
         klietkaNaSlona.vypis();
         klietkaNaSlona.predvedZviera();
+
+        Klietka<Macka> klietkaNaMacku = new Klietka<>();
+        klietkaNaMacku.vloz(new Macka());
+        klietkaNaMacku.vhodPotravu(new Mys(true));
+        klietkaNaMacku.vypis();
     }
 }

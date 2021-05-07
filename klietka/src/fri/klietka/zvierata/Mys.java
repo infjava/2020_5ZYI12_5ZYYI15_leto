@@ -1,6 +1,8 @@
 package fri.klietka.zvierata;
 
-public class Mys extends Zviera {
+import fri.klietka.potrava.IPotrava;
+
+public class Mys extends Zviera implements IPotrava<Macka> {
     private final boolean jeSamec;
 
     public Mys(boolean jeSamec) {

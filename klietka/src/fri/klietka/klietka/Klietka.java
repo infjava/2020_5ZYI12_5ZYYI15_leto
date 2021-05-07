@@ -1,6 +1,6 @@
 package fri.klietka.klietka;
 
-import fri.klietka.potrava.Potrava;
+import fri.klietka.potrava.IPotrava;
 import fri.klietka.zvierata.VycviceneZviera;
 import fri.klietka.zvierata.Zviera;
 
@@ -26,7 +26,7 @@ public class Klietka<E extends Zviera> {
         }
     }
 
-    public void vhodPotravu(Potrava<E> potrava) {
+    public void vhodPotravu(IPotrava<E> potrava) {
         System.out.format("%s zjedlo potravu%n", this.zviera.getMeno());
     }
 
