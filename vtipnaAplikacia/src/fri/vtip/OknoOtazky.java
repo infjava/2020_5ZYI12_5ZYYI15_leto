@@ -29,6 +29,8 @@ public class OknoOtazky {
         JButton ano = new JButton("Ano");
         JButton nie = new JButton("Nie");
 
+        ano.setFocusable(false);
+
         ano.addMouseListener(new MouseAdapter() {
             private boolean prvyAno = true;
 
