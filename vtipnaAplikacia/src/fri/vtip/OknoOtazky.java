@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class OknoOtazky {
     private final JFrame okno;
@@ -23,6 +25,27 @@ public class OknoOtazky {
 
         JButton ano = new JButton("Ano");
         JButton nie = new JButton("Nie");
+
+        ano.addMouseListener(new MouseAdapter() {
+            private boolean prvyAno = true;
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                tlacitka.removeAll();
+
+                if (this.prvyAno) {
+                    tlacitka.add(nie);
+                    tlacitka.add(ano);
+                } else {
+                    tlacitka.add(ano);
+                    tlacitka.add(nie);
+                }
+                this.prvyAno = !this.prvyAno;
+
+                tlacitka.revalidate();
+                tlacitka.repaint();
+            }
+        });
 
         nie.addActionListener(e -> {
             JOptionPane.showMessageDialog(null, "To myslis vazne?");
