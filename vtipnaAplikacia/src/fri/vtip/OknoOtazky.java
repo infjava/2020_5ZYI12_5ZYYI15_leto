@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
@@ -15,6 +16,8 @@ public class OknoOtazky {
 
     public OknoOtazky() {
         this.okno = new JFrame("Otazka");
+
+        this.okno.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
         this.okno.setLayout(new BorderLayout(0, 10));
 
