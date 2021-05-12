@@ -3,9 +3,12 @@ package fri.vtip;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class OknoOtazky {
     private final JFrame okno;
@@ -23,7 +26,13 @@ public class OknoOtazky {
         JButton ano = new JButton("Ano");
         JButton nie = new JButton("Nie");
 
-        nie.addActionListener(new UkoncenieAplikacie());
+        nie.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "To myslis vazne?");
+                System.exit(0);
+            }
+        });
 
         tlacitka.add(ano);
         tlacitka.add(nie);
