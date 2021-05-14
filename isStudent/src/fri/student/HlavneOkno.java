@@ -27,6 +27,7 @@ public class HlavneOkno {
         this.studenti.setModel(this.zoznamStudentov);
 
         this.novy.addActionListener(e -> this.novyStudent());
+        this.editovat.addActionListener(e -> this.editujStudenta());
         this.vymazat.addActionListener(e -> this.vymazStudenta());
 
         DocumentListener kontrolaZmeny = new DocumentListener() {
@@ -66,6 +67,17 @@ public class HlavneOkno {
         Student student = new Student(menoStudenta, priezviskoStudenta);
 
         this.zoznamStudentov.addElement(student);
+    }
+
+    private void editujStudenta() {
+        Student oznacenyStudent = this.studenti.getSelectedValue();
+
+        String menoStudenta = this.meno.getText();
+        String priezviskoStudenta = this.priezvisko.getText();
+
+        oznacenyStudent.premenuj(menoStudenta, priezviskoStudenta);
+
+        this.studenti.updateUI();
     }
 
     private void vymazStudenta() {
