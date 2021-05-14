@@ -25,6 +25,7 @@ public class HlavneOkno {
         this.studenti.setModel(this.zoznamStudentov);
 
         this.novy.addActionListener(e -> this.novyStudent());
+        this.vymazat.addActionListener(e -> this.vymazStudenta());
     }
 
     private void novyStudent() {
@@ -34,6 +35,11 @@ public class HlavneOkno {
         Student student = new Student(menoStudenta, priezviskoStudenta);
 
         this.zoznamStudentov.addElement(student);
+    }
+
+    private void vymazStudenta() {
+        Student oznacenyStudent = this.studenti.getSelectedValue();
+        this.zoznamStudentov.removeElement(oznacenyStudent);
     }
 
     public void zobraz() {
