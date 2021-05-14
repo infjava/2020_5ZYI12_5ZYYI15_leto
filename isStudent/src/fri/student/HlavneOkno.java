@@ -47,7 +47,7 @@ public class HlavneOkno {
             }
         };
 
-        this.studenti.addListSelectionListener(e -> this.aktualizujPovoleniaTlacitok());
+        this.studenti.addListSelectionListener(e -> this.zmenaOznaceniaStudenta());
 
         this.priezvisko.getDocument().addDocumentListener(kontrolaZmeny);
         this.meno.getDocument().addDocumentListener(kontrolaZmeny);
@@ -56,8 +56,30 @@ public class HlavneOkno {
     }
 
     private void aktualizujPovoleniaTlacitok() {
-        this.novy.setEnabled(!this.meno.getText().isEmpty() && !this.priezvisko.getText().isEmpty());
-        this.vymazat.setEnabled(this.studenti.getSelectedValue() != null);
+        Student oznacenyStudent = this.studenti.getSelectedValue();
+        boolean menoPriezviskoZadane = !this.meno.getText().isEmpty() && !this.priezvisko.getText().isEmpty();
+
+        this.novy.setEnabled(menoPriezviskoZadane);
+        this.vymazat.setEnabled(oznacenyStudent != null);
+
+        if (oznacenyStudent == null || !menoPriezviskoZadane) {
+            this.editovat.setEnabled(false);
+        } else {
+            boolean menoPriezviskoZmenene = !this.meno.getText().equals(oznacenyStudent.getMeno())
+                    || !this.priezvisko.getText().equals(oznacenyStudent.getPriezvisko());
+
+            this.editovat.setEnabled(menoPriezviskoZmenene);
+        }
+    }
+
+    private void zmenaOznaceniaStudenta() {
+        Student oznacenyStudent = this.studenti.getSelectedValue();
+        if (oznacenyStudent != null) {
+            this.meno.setText(oznacenyStudent.getMeno());
+            this.priezvisko.setText(oznacenyStudent.getPriezvisko());
+        }
+
+        this.aktualizujPovoleniaTlacitok();
     }
 
     private void novyStudent() {
@@ -78,6 +100,8 @@ public class HlavneOkno {
         oznacenyStudent.premenuj(menoStudenta, priezviskoStudenta);
 
         this.studenti.updateUI();
+
+        this.aktualizujPovoleniaTlacitok();
     }
 
     private void vymazStudenta() {
