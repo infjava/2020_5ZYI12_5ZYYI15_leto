@@ -3,7 +3,7 @@ package fri.student;
 public class Main {
 
     public static void main(String[] args) {
-        //TODO Write your code
-        System.out.println("Hello world");
+        HlavneOkno okno = new HlavneOkno();
+        okno.zobraz();
     }
 }
