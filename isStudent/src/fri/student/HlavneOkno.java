@@ -7,6 +7,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.Dimension;
 
 public class HlavneOkno {
@@ -26,6 +28,32 @@ public class HlavneOkno {
 
         this.novy.addActionListener(e -> this.novyStudent());
         this.vymazat.addActionListener(e -> this.vymazStudenta());
+
+        DocumentListener kontrolaZmeny = new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujPovoleniaTlacitok();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujPovoleniaTlacitok();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                HlavneOkno.this.aktualizujPovoleniaTlacitok();
+            }
+        };
+
+        this.priezvisko.getDocument().addDocumentListener(kontrolaZmeny);
+        this.meno.getDocument().addDocumentListener(kontrolaZmeny);
+
+        this.aktualizujPovoleniaTlacitok();
+    }
+
+    private void aktualizujPovoleniaTlacitok() {
+        this.novy.setEnabled(!this.meno.getText().isEmpty() && !this.priezvisko.getText().isEmpty());
     }
 
     private void novyStudent() {
