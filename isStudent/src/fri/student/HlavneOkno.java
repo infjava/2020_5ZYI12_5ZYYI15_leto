@@ -46,6 +46,8 @@ public class HlavneOkno {
             }
         };
 
+        this.studenti.addListSelectionListener(e -> this.aktualizujPovoleniaTlacitok());
+
         this.priezvisko.getDocument().addDocumentListener(kontrolaZmeny);
         this.meno.getDocument().addDocumentListener(kontrolaZmeny);
 
@@ -54,6 +56,7 @@ public class HlavneOkno {
 
     private void aktualizujPovoleniaTlacitok() {
         this.novy.setEnabled(!this.meno.getText().isEmpty() && !this.priezvisko.getText().isEmpty());
+        this.vymazat.setEnabled(this.studenti.getSelectedValue() != null);
     }
 
     private void novyStudent() {
