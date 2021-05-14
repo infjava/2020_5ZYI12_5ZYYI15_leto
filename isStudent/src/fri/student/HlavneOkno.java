@@ -24,11 +24,16 @@ public class HlavneOkno {
 
         this.studenti.setModel(this.zoznamStudentov);
 
-        this.zoznamStudentov.addElement(new Student("Jozko", "Mrkvicka"));
-        this.zoznamStudentov.addElement(new Student("Ferko", "Mrkvicka"));
-        this.zoznamStudentov.addElement(new Student("Terminator", "T1000"));
-        this.zoznamStudentov.addElement(new Student("Igor", "Matovic"));
-        this.zoznamStudentov.addElement(new Student("Agata", "Christie"));
+        this.novy.addActionListener(e -> this.novyStudent());
+    }
+
+    private void novyStudent() {
+        String menoStudenta = this.meno.getText();
+        String priezviskoStudenta = this.priezvisko.getText();
+
+        Student student = new Student(menoStudenta, priezviskoStudenta);
+
+        this.zoznamStudentov.addElement(student);
     }
 
     public void zobraz() {
